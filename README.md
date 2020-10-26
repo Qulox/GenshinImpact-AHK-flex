@@ -11,4 +11,4 @@
 
 - Скачать репозиторий (зеленая кнопка Code > Download Zip)
 
-- Запустить Genshi AHK Flex.ahk
+- Запустить "Genshi AHK Flex.ahk"
