@@ -88,12 +88,12 @@ Right - Пролистать оверлей
 End - Завершить работу скрипта
 V - Macro Key
 Numpad 0 - Отключить макро
-Numpad 1 - Стрельба на Эмбер по легиту но нужно быть в движении на +W
-Numpad 2 - Стрельба на Фишль по легиту но нужно быть в движении на +W
-Numpad 3 - Кли Charge Attack
-Numpad 4 - Фишль и Эмбер рейдж +W
-Numpad 5 - Венти ГаньЮй MachineGun
-Numpad 6 - Кли Сombo
+Numpad 1 - Стрельба на Amber по легиту но нужно быть в движении на +W
+Numpad 2 - Стрельба на Fischl по легиту но нужно быть в движении на +W
+Numpad 3 - Xiangling DragonStrike ?
+Numpad 4 - Fischl и Amber рейдж +W
+Numpad 5 - Venti Ganyu MachineGun
+Numpad 6 - Klee Сombo
 Numpad 7 - Diluc+Beidou DragonStrike
 Numpad 8 - Noelle DragonStrike
 Numpad 9 - Eula DragonStrike
