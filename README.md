@@ -2,7 +2,7 @@
 
 AHK скрипт для Genshin Impact
 
-![hippo](https://media.giphy.com/media/VhI5dMoOUMWtiLfDAG/giphy.gif)
+![hippo](https://media.giphy.com/media/xArjRR54nHdxJn8EG8/giphy.gif)
 
 __Что по функционалу:__
 
