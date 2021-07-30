@@ -1,8 +1,8 @@
-# Genshi AHK Flex v4
+# Genshi AHK Flex v4.1
 
 AHK скрипт для Genshin Impact
 
-![hippo](https://media.giphy.com/media/OKahQgoHPbRtCzmPUP/giphy.gif)
+![hippo](https://media.giphy.com/media/VhI5dMoOUMWtiLfDAG/giphy.gif)
 
 __Что по функционалу:__
 
