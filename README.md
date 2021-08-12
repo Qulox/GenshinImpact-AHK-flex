@@ -31,7 +31,7 @@ __Возможности:__
 
 1. Скачать и установить [autohotkey.com](https://www.autohotkey.com)
 
- "Custom installation" => "Unicode 64" => All checkbox => "Install"
+  "Custom installation" => "Unicode 64" => Все галочки => "Install"
 
 2. Скачать репозиторий (Code > [Download Zip:wheelchair:](https://github.com/Kramar1337/GenshinImpact-AHK-flex/archive/main.zip))
 
