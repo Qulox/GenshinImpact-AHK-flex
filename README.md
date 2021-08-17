@@ -27,13 +27,20 @@ __Возможности:__
 - Ручной сброс настроек если скрипт не запускается "data\default.ahk"
 - Вкладка безопасность: Name changer, Hash changer, WindowNameChanger, Random 15-20ms (NoMacro)
 
+__Требования к работе скрипта:__
+
+- 60 FPS в игре
+- Правильная установка Autohotkey
+- Запуск от имени Администратора
+
 :memo:__Показания к применению:__:memo:
 
 1. Скачать и установить [Autohotkey.com](https://www.autohotkey.com/download/ahk-install.exe)
 
-  "Custom installation" => "Unicode 64" => Все галочки => "Install"
+  "Custom installation" => "Unicode 64" => All checkboxes => "Install"
+![hippo](https://media.giphy.com/media/eHuepkw9xn5LaWfWhp/giphy.gif)
 
-2. Скачать репозиторий (Code > [Download Zip:wheelchair:](https://github.com/Kramar1337/GenshinImpact-AHK-flex/archive/main.zip))
+2. Скачать репозиторий (Code > [Download Zip👌](https://github.com/Kramar1337/GenshinImpact-AHK-flex/archive/main.zip))
 
 3. Запустить "Genshi AHK Flex.ahk"
 
@@ -116,7 +123,7 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 
 
 <details>
-<summary>==Список изменений за все время==</summary>
+<summary>==Список изменений==</summary>
 Изменения: 17.08.2021
 
  - Бинд на карту поддерживает многомониторную конфигурацию ПК, тестить некому так что хз как оно работает, в оконный без рамок идеально работает с ярлыком (-popupwindow) и реестр "Screenmanager Is Fullscreen mode = 0"
