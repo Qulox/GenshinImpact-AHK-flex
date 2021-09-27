@@ -1,6 +1,6 @@
 # Genshi AHK Flex v4.4
 
-AHK скрипт для Genshin Impact
+AHK скрипт для Genshin Impact. [Wiki](https://github.com/Kramar1337/GenshinImpact-AHK-flex/wiki)
 
 ![hippo](https://media.giphy.com/media/xArjRR54nHdxJn8EG8/giphy.gif)
 
@@ -133,6 +133,15 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 <details>
 <summary>==Список изменений==</summary>
 
+Изменения: 09.09.2021
+ - Скрыть надпись в тултипе рыбалочки
+
+Изменения: 08.09.2021
+ - Оверлей 4 стр, добавлен Тома
+ - Оверлей 5 стр
+ - Фикс скипа диалогов(они там что за моими скриптами следят? год все работало и вдруг отвал)
+ - Еще 1 фикс рыбалки(3й по счету)
+  
 Изменения: 03.09.2021
  
  - Челы полоску с рыбалкой передвинули чи шо
