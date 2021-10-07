@@ -25,9 +25,9 @@ __Возможности:__
 - Работа с реестром
 - Отключение CGI кастсцен
 - Автоматическая игра на "Лире ветров" (все сложно... но проще чем у других)
-- Выбор режима имитации ввода SendInput, SendPlay, WinApi, Interception (по стандарту стоит SendInput)
-+ 123
++ Выбор режима имитации ввода SendInput, SendPlay, WinApi, Interception (по стандарту стоит SendInput)
   + 1234
+  + 12345
 - Импорт настроек скрипта
 - Ручной сброс настроек если скрипт не запускается "data\default.ahk"
 - Вкладка безопасность: Name changer, Hash changer, WindowNameChanger, Random 15-40ms (NoMacro)
