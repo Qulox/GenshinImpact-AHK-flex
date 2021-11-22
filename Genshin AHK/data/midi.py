@@ -4,6 +4,10 @@ import json
 import os
 import time
 import sys
+
+import win32gui # Библиотека для проверки окна игры чтобы паузить, CMD "py -m pip install pywin32"
+
+
 from typing import List
 
 import mido
@@ -191,6 +195,12 @@ class LyrePlayer:
         fast_forward_time = song_config.skip_start_time
         last_clock = time.time()
         for msg in mid:
+            HWND1337 = win32gui.GetForegroundWindow() 	# Получить хендл активного окна
+            string1337 = win32gui.GetClassName(HWND1337) 	# Получить класс окна(хендла)
+            if not string1337 == "UnityWndClass": 	# Если класс не соответствует
+                self.play_task_active = False 	# Остановиться
+                print("stop playing") 	# Написать сообщение
+                return 	# Возврат
             # check for stop
             if not self.play_task_active:
                 print("stop playing")

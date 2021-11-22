@@ -69,6 +69,7 @@ Checkbox1skipNPS=1
 Checkbox1autoswim=1
 Checkbox1vi4ersens=1
 Checkbox1animcancel=1
+Checkbox1animcancelLock=0
 Checkbox1bhop=1
 Checkbox1bhopDelay=1
 Checkbox1bhopDelayMs=100

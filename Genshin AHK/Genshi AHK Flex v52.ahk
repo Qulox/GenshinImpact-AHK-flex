@@ -55,6 +55,39 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 3 069	7 966	4 959 	лук амоса т1
 2 972	7 716	4 803 	составной т1+пасивка
 2 924	7 590	4 725 	хамаюми т1+пасивка
+База	Крит	Среднее
+2 801	7 271	5 039	Венти с1	составной
+2 992	7 766	4 964 	емия		составной
+3 030	9 029	4 356	гань юй		составной
+2 801	7 271	3 789	Венти		составной
+2 276	5 908	5 602	Венти с1	рогатка с5 + пасивочка
+2 448	6 355	5 281	Ёимия		рогатка с5 + пасивочка
+2 483	7 398	5 103	гань юй		рогатка с5 + пасивочка
+2 276	5 908	4 212	Венти		рогатка с5 + пасивочка
+
+База	Крит	Среднее	без артефактов
+588		883		924		Венти с1	Рогатка
+657		1 238	867		Гань Юй		Рогатка
+646		968		825		Ёимия		Рогатка
+588		883		695		Венти		Рогатка
+815		1 222	1111	Венти с1	составной
+883		1 324	990		Ёимия		составной
+897		1 689	936		Гань Юй		составной
+815		1 222	835		Венти		составной
+
+
+Обычн.	Крит.	Средн.	Зулин
+3 382	6 707	5 440	хамаюми т5
+3 207	6 360	5 159	составной т5
+3 043	6 034	4 894	составной
+2 985	5 919	4 801	хамаюми
+2 486	4 931	4 762	рогатка т5
+Обычн.	Крит.	Средн.	Крампус
+2 992	7 766	4 964	составной
+2 448	6 355	5 281	рогатка т5
+
+
+
 
 
 21 день - 1 банер
@@ -67,12 +100,11 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 Сяо	+ Юн Чжин	~26	января		2.4 Version
 Ганью			~16 февраля		2.5 Version
 Яэ + ?			~9 марта		2.5 Version
-
-
+Аято							2.6 Version
+Бай Джу							2.6 Version
 
 ---
 А где реран козы? Через 126+ дней в 2022?
-
 
 
 Сколько гемов можно получить чтобы забрать ивент крутки, за МЕСЯЦ:
@@ -95,21 +127,29 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 
 
 
-19:08:30 респавн боса
-между ними 6 мин 10 сек
-19:14:40 респавн боса
-между ними 7 мин 20 сек
-19:22:00 респавн боса
-между ними 5 мин
-19:27:00 респавн боса
-между ними 7 мин 30 сек
-19:34:32 респавн боса
+12:22:12(1332) убийство папаратника 12:26:49(1609) возрождение (277) 
+11:29:10(1750) убийство папаратника и моментальное возрождение (11:28:50 пришел к нему)
+12:29:10(1750) убийство папаратника 12:33:10(1990) возрождение (240)
+11:30:54(1854) убийство папаратника 11:34:50(2090) возрождение (236)
+11:36:28(2188) убийство папаратника 11:40:50(2450) возрождение (262)
+11:33:50(2030) убийство вишапика 11:37:50 возрождение
+11:39:15(2355) убийство вишапика 11:43:13 возрождение
 
 
 
 
 
+Изменения: 19.11.2021
+ - Исправлены чекбокс фастлута и скипа диалогов, спасибо "Финику"
 
+Изменения: 14.11.2021
+ - Изменение таймингов на 9H1CJ 420 и 580 вместо старых 400 и 570
+
+Изменения: 12.11.2021
+ - Питонский скрипт для лиры ветров перестанет играть если окно игры свернуто, обновить "data\pip instal.bat"
+
+Изменения: 11.11.2021
+ - Настройки - Карты, подсвечивается выбранная карта "<="
 
 Изменения: 05.11.2021
  - Numpad 8 - Hu Tao 9N2CJ(2 нормал => отмена прыжком, 9-10 тычек, хитлаг удлиняет пиро инфузию до 10 сек)
@@ -524,6 +564,7 @@ IniRead, Checkbox1skipNPS, data\genConfig.ini, Setings, Checkbox1skipNPS
 IniRead, Checkbox1autoswim, data\genConfig.ini, Setings, Checkbox1autoswim
 IniRead, Checkbox1vi4ersens, data\genConfig.ini, Setings, Checkbox1vi4ersens
 IniRead, Checkbox1animcancel, data\genConfig.ini, Setings, Checkbox1animcancel
+IniRead, Checkbox1animcancelLock, data\genConfig.ini, Setings, Checkbox1animcancelLock
 IniRead, Checkbox1bhop, data\genConfig.ini, Setings, Checkbox1bhop
 IniRead, Checkbox1bhopDelay, data\genConfig.ini, Setings, Checkbox1bhopDelay
 IniRead, Checkbox1bhopDelayMs, data\genConfig.ini, Setings, Checkbox1bhopDelayMs
@@ -657,14 +698,14 @@ Gui, 1: Add, Text, v1TextskipNPS x104 y136 w80 h23, Скип диалогов
 Else
 Gui, 1: Add, Text, v1TextskipNPS x104 y136 w80 h23, Dialogue skip
 
-Gui, 1: Add, CheckBox, vCheckbox0skipNPS x16 y112 w13 h18 Checked%Checkbox1skipNPS%
+Gui, 1: Add, CheckBox, vCheckbox0skipNPS x16 y136 w13 h18 Checked%Checkbox1skipNPS%
 Gui, 1: Add, Edit, x40 y112 w61 h21 vkey_fastlyt, %key_fastlyt%
 if GlLanguage
 Gui, 1: Add, Text, v1Textfastlyt x104 y112 w80 h23, Фастлут
 Else
 Gui, 1: Add, Text, v1Textfastlyt x104 y112 w80 h23, Fastloot
 
-Gui, 1: Add, CheckBox, vCheckbox0fastlyt x16 y136 w13 h18 Checked%Checkbox1fastlyt%
+Gui, 1: Add, CheckBox, vCheckbox0fastlyt x16 y112 w13 h18 Checked%Checkbox1fastlyt%
 Gui, 1: Add, Edit, x40 y160 w61 h21 vkey_autoswim, %key_autoswim%
 if GlLanguage
 Gui, 1: Add, Text, v1Textautoswim x104 y160 w66 h23, Таймер
@@ -682,6 +723,11 @@ Gui, 1: Add, CheckBox, vCheckbox0vi4ersens x16 y184 w13 h18 Checked%Checkbox1vi4
 Gui, 1: Add, Edit, x40 y208 w61 h21 vkey_animcancel, %key_animcancel%
 Gui, 1: Add, Text, v1Textanimcancel x104 y208 w56 h23, MacroKey
 Gui, 1: Add, CheckBox, vCheckbox0animcancel x16 y208 w13 h18 Checked%Checkbox1animcancel%
+; Gui, 1: Add, CheckBox, vCheckbox0animcancelLock x161 y208 w44 h18 Checked%Checkbox1animcancelLock%, *Lock
+
+
+
+
 Gui, 1: Add, Edit, x40 y232 w61 h21 +Disabled, Space
 Gui, 1: Add, Text, x104 y232 w31 h20, Bhop
 Gui, 1: Add, CheckBox, vCheckbox0bhop x16 y232 w13 h18 Checked%Checkbox1bhop%
@@ -725,12 +771,19 @@ Gui, 1: Add, Text, x16 y112 w120 h23, Cutscenes CGI
 Gui, 1: Add, Button, gOnCGI x16 y136 w43 h23, ON
 Gui, 1: Add, Button, gOffCGI x96 y136 w43 h23, OFF
 if GlLanguage
-Gui, 1: Add, GroupBox, x152 y24 w184 h80, Карта
+Gui, 1: Add, GroupBox, x152 y24 w186 h80, Карта
 Else
-Gui, 1: Add, GroupBox, x152 y24 w184 h80, Map
+Gui, 1: Add, GroupBox, x152 y24 w186 h80, Map
 
-Gui, 1: Add, ListBox, x160 y40 w124 h56 vList1488 AltSubmit, 1 - Mihoyo|2 - Genshin-impact-map|3 - Mapgenie.io|4 - Yuanshen.site
-Gui, 1: Add, Button, gpickmap x288 y56 w39 h23, Pick
+If (Map2toggle == 1)
+Gui, 1: Add, ListBox, x160 y40 w138 h56 vList1488 AltSubmit, 1 - Mihoyo  <=|2 - Genshin-impact-map|3 - Mapgenie.io|4 - Yuanshen.site
+If (Map2toggle == 2)
+Gui, 1: Add, ListBox, x160 y40 w138 h56 vList1488 AltSubmit, 1 - Mihoyo|2 - Genshin-impact-map <=|3 - Mapgenie.io|4 - Yuanshen.site
+If (Map2toggle == 3)
+Gui, 1: Add, ListBox, x160 y40 w138 h56 vList1488 AltSubmit, 1 - Mihoyo|2 - Genshin-impact-map|3 - Mapgenie.io  <=|4 - Yuanshen.site
+If (Map2toggle == 4)
+Gui, 1: Add, ListBox, x160 y40 w138 h56 vList1488 AltSubmit, 1 - Mihoyo|2 - Genshin-impact-map|3 - Mapgenie.io|4 - Yuanshen.site  <=
+Gui, 1: Add, Button, gpickmap x301 y56 w32 h23, Pick
 ;не запутаться в чекбоксах, первая переменная хранит положение переключателя, 2я переменная извлекает из переменной значение переключателя
 Gui, 1: Add, CheckBox, vCheckboxtooltipVvoba x16 y200 w120 h23 Checked%showtooltipVvoba%, Tooltip MacroKey
 if GlLanguage
@@ -748,7 +801,7 @@ Gui, 1: Add, CheckBox, vCheckboxIsAdmin x160 y248 w120 h23 Checked%IsAdmin%, Run
 
 ;===============================Лира ветров
 
-Gui, 1: Add, GroupBox, x152 y104 w184 h63, Windsong Lyre
+Gui, 1: Add, GroupBox, x152 y104 w186 h63, Windsong Lyre
 Gui, 1: Add, Button, gParsButton x160 y136 w43 h23, Pars
 Gui, 1: Add, Button, gClearButton x224 y136 w43 h23, Clear
 Gui, 1: Add, Button, gRunButton x288 y136 w43 h23, Run
@@ -1194,6 +1247,11 @@ IniWrite, %Checkbox1vi4ersens%, data\genConfig.ini, Setings, Checkbox1vi4ersens
 	IniRead, Checkbox1animcancel, %FileVarImport%, Setings, Checkbox1animcancel
 	if !(Checkbox1animcancel = "ERROR")
 IniWrite, %Checkbox1animcancel%, data\genConfig.ini, Setings, Checkbox1animcancel
+
+	IniRead, Checkbox1animcancelLock, %FileVarImport%, Setings, Checkbox1animcancelLock
+	if !(Checkbox1animcancelLock = "ERROR")
+IniWrite, %Checkbox1animcancelLock%, data\genConfig.ini, Setings, Checkbox1animcancelLock
+
 	IniRead, Checkbox1bhop, %FileVarImport%, Setings, Checkbox1bhop
 	if !(Checkbox1bhop = "ERROR")
 IniWrite, %Checkbox1bhop%, data\genConfig.ini, Setings, Checkbox1bhop
@@ -2409,11 +2467,11 @@ IfWinActive, %gameexe1337%
 			break
 		
 		SendInput {LButton down}
-		Sleep 400 	;400
+		Sleep 420 	;400
 		SendInput {LButton up}
 		Sleep 15
 		SendInput {Space}
-		sleep 570 	;570
+		sleep 580 	;570
 	}
 }
 }
@@ -2705,6 +2763,7 @@ IniWrite, %Checkbox0skipNPS%, data\genConfig.ini, Setings, Checkbox1skipNPS
 IniWrite, %Checkbox0autoswim%, data\genConfig.ini, Setings, Checkbox1autoswim
 IniWrite, %Checkbox0vi4ersens%, data\genConfig.ini, Setings, Checkbox1vi4ersens
 IniWrite, %Checkbox0animcancel%, data\genConfig.ini, Setings, Checkbox1animcancel
+IniWrite, %Checkbox0animcancelLock%, data\genConfig.ini, Setings, Checkbox1animcancelLock
 IniWrite, %Checkbox0bhop%, data\genConfig.ini, Setings, Checkbox1bhop
 IniWrite, %Checkbox0bhopDelay%, data\genConfig.ini, Setings, Checkbox1bhopDelay
 
