@@ -89,22 +89,19 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 
 
 
-
 21 день - 1 банер
 ---таблица крамбубликса
-Торт			~13 октября		2.2 Version
-Хутао + Тома	~3 ноября		2.2 Version
+Эола			~24 ноября		2.3 Version
 Альбедо			~24 ноября		2.3 Version
 Итто + Горо		~15 декабря		2.3 Version
-Шеньхэ			~5 января		2.4 Version
-Сяо	+ Юн Чжин	~26	января		2.4 Version
-Ганью			~16 февраля		2.5 Version
-Яэ + ?			~9 марта		2.5 Version
+Сяо + Ганьюй	~5 января		2.4 Version
+ШэньХэ+ЮньЦзинь					2.4 Version
+ЧжунЛи + ?						2.5 Version
+Яэ + ?							2.5 Version
 Аято							2.6 Version
 Бай Джу							2.6 Version
-
 ---
-А где реран козы? Через 126+ дней в 2022?
+
 
 
 Сколько гемов можно получить чтобы забрать ивент крутки, за МЕСЯЦ:
@@ -137,7 +134,8 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 
 
 
-
+Изменения: 26.11.2021
+ - В оверлей добавлены ШеньХе и Юнджин, небольшие исправления
 
 Изменения: 19.11.2021
  - Исправлены чекбокс фастлута и скипа диалогов, спасибо "Финику"
@@ -741,10 +739,15 @@ Gui, 1: Add, Edit, vCheckbox1bhopDelayMs x160 y232 w28 h17 Number Limit4, %Check
 Gui, 1: Add, Text, v1TextaMs x192 y232 w14 h20, ms
 Gui, 1: Add, CheckBox, vCheckbox0bhopDelay x136 y232 w23 h18 Checked%Checkbox1bhopDelay%, >
 Random, RandomFishlPic1, 0,6
-if (RandomFishlPic1 > 1)
+if (RandomFishlPic1 > 3)
 Gui, 1: Add, Picture, x208 y16 w252 h256 +BackgroundTrans, data\1page1fish.png
 else
-Gui, 1: Add, Picture, x208 y16 w252 h256 +BackgroundTrans, data\2page1fish.png
+{
+	if (RandomFishlPic1 = 3) or (RandomFishlPic1 = 2)
+	Gui, 1: Add, Picture, x208 y16 w252 h256 +BackgroundTrans, data\2page1fish.png
+	else
+	Gui, 1: Add, Picture, x208 y16 w252 h256 +BackgroundTrans, data\3page1fish.png
+}
 Gui, 1: Tab, 2 	;================настройки=======================================================================настройки==Tab
 if GlLanguage
 Gui, 1: Add, GroupBox, x8 y24 w139 h143, Доп. фишки
