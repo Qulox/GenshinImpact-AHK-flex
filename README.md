@@ -1,4 +1,4 @@
-# Genshi AHK Flex v5.41
+# Genshi AHK Flex v5.42
 
 AHK скрипт для Genshin Impact.
 
@@ -134,6 +134,7 @@ Numpad 6 - Legit лучники если кикает с сервера
 Numpad 7 - Diluc DragonStrike(Ручной)
 Numpad 8 - Hu Tao N2CJ
 Numpad 9 - Hu Tao H1CJ
+Alt + Numpad 0 - Hu Tao N2CJ (min)
 Alt + Numpad 1 - Klee N1CJ
 Alt + Numpad 2 - Klee N2H1
 Alt + Numpad 3 - Klee AutoAttack(Удерживать WASD + Macro Key)
@@ -160,8 +161,17 @@ CTRL-ALT-Numpad0 - Запустить ярлык GenshAHK.lnk
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 26.01.2022
+Изменения: 06.02.2022
 
+ - Фикс таймера
+ - Изменения в вкладке "Реестр"
+ - Numpad 8 - Hu Tao N2CJ - изменения
+ - Alt + Numpad 0 - Hu Tao N2CJ(min) - минимальные тайминги
+
+Изменения: 31.01.2022
+ - Исправлен отключатель катсцен
+
+Изменения: 26.01.2022
  - Обратный фикс чат для скипа диалогов
  - Переработан манипулятор реестра: +Фильтры, -кнопки и тд
  - Alt + Numpad 7 - Ganyu Hold
