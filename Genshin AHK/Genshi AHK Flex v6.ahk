@@ -118,7 +118,11 @@ Insert - Включить/отключить ReShade
 
 
 
-
+Изменения: 03.04.2022
+ - Отключен уидхайд в Gui
+ - В пункте с лирой добавлена кнопка "Exp" для открытия папки куда скидывать песни
+ - Изменения в "Menu Tray"
+ - Тестовый бкапер фристалеровских нвидивских фильтров
 
 Изменения: 31.03.2022
  - Оверлей Куки + Елан
@@ -789,19 +793,27 @@ Hotkey, *~%key_bhop%, Metkakey_bhop, on
 Menu,Tray,NoStandard
 Menu,Tray,DeleteAll
 Menu,Tray, add, Setings, MetkaMenu1
+Menu,Tray, Icon, Setings, imageres.dll,110, 16
 Menu,Tray, Default , Setings
 Menu,Tray, add
 Menu,Tray, add, Сreate AHK shortcut, Metkashortcut1
+Menu,Tray, Icon, Сreate AHK shortcut, shell32.dll,264, 16
 Menu,Tray, add, Сreate Game shortcut, Metkashortcut2
+Menu,Tray, Icon, Сreate Game shortcut, shell32.dll,264, 16
 Menu,Tray, add, Сreate ReShade shortcut, Metkashortcut3
+Menu,Tray, Icon, Сreate ReShade shortcut, shell32.dll,264, 16
+Menu,Tray, add
+Menu,Tray, add, Lira bot, RunButton
+Menu,Tray, Icon, Lira bot, imageres.dll,207, 16
 Menu,Tray, add
 Menu,Tray, add, Exit, MetkaMenu0
+Menu,Tray, Icon, Exit, shell32.dll,28, 16
 Menu,Tray, Icon, data\genicon.ico, ,1
 ;====================Gui настройки
 if GlLanguage
-Gui, 1: Add, Tab3, x0 y0 w469 h277, Бинды|Настройки|Безопасность|Реестр|Решейд|Ресурсы
+Gui, 1: Add, Tab3, x0 y0 w469 h277, Бинды|Настройки|Безопасность|Реестр|Графика|Ресурсы
 Else
-Gui, 1: Add, Tab3, x0 y0 w469 h277, Binds|Settings|Security|Registry|ReShade|Links
+Gui, 1: Add, Tab3, x0 y0 w469 h277, Binds|Settings|Security|Registry|Graphics|Links
 
 Gui, 1: Tab, 1 	;================главная======================================================================главная(бинды)===Tab
 if GlLanguage
@@ -941,9 +953,13 @@ Gui, 1: Add, CheckBox, vCheckboxAutoExitAHK x160 y248 w120 h23 +Checked%AutoExit
 ;===============================Лира ветров
 
 Gui, 1: Add, GroupBox, x152 y104 w186 h63, Windsong Lyre
-Gui, 1: Add, Button, gParsButton x160 y136 w43 h23, Pars
-Gui, 1: Add, Button, gClearButton x224 y136 w43 h23, Clear
-Gui, 1: Add, Button, gRunButton x288 y136 w43 h23, Run
+Gui, 1: Add, Button, gExploreMidiButton x160 y136 w34 h23, Exp
+; Gui, 1: Add, Button, gParsButton x160 y136 w43 h23, Pars
+Gui, 1: Add, Button, gParsButton x240 y136 w34 h23, Pars
+; Gui, 1: Add, Button, gClearButton x224 y136 w43 h23, Clear
+Gui, 1: Add, Button, gClearButton x200 y136 w34 h23, Clear
+; Gui, 1: Add, Button, gRunButton x288 y136 w43 h23, Run
+Gui, 1: Add, Button, gRunButton x296 y136 w34 h23, Run
 
 
 ;===============================импорт-экспорт настроек и автообновлятор
@@ -985,7 +1001,7 @@ Gui, 1: Add, CheckBox, vCheckboxScScHachCh x16 y160 w129 h23 Checked%ScHachCh%, 
 Gui, 1: Add, CheckBox, vCheckboxScWinrenamer x16 y184 w129 h23 Checked%ScWinrenamer%, WindowNameChanger
 Gui, 1: Add, CheckBox, vCheckboxScRandomT x16 y208 w160 h23 Checked%ScRandomT%, Random 15ms (Full All)
 Gui, 1: Add, CheckBox, vCheckboxScRenamer x16 y136 w129 h23 Checked%ScRenamer%, Name changer
-Gui, 1: Add, CheckBox, vCheckboxScOverlay x16 y232 w140 h23 Checked%ScOverlay%, UID Hide (Window)
+; Gui, 1: Add, CheckBox, vCheckboxScOverlay x16 y232 w140 h23 Checked%ScOverlay%, UID Hide (Window)
 
 Gui, 1: Add, Button, gPickInterDriver x16 y88 w126 h23, Interception driver (AHI)
 Gui, 1: Tab, 4 	;===============Реестр=====================================================================Реестр====Tab
@@ -1028,10 +1044,11 @@ Gui, 1: Add, Button, g1ReshadeRemove x72 y40 w55 h23, Remove
 Gui, 1: Add, Button, g1ReshadeRun x144 y40 w39 h23, Run
 
 Gui, 1: Add, Picture, x208 y16 w252 h256 +BackgroundTrans, data\page5pcmr.png
-Gui, 1: Add, GroupBox, x8 y80 w186 h49, Nvidia Freestyle up
-Gui, 1: Add, Button, g1FreestyleInstal x16 y96 w39 h23, Instal
-Gui, 1: Add, Button, x72 y96 w55 h23 +Disabled, BackUp
-Gui, 1: Add, Button, x144 y96 w39 h23 +Disabled, Restor
+Gui, 1: Add, GroupBox, x8 y80 w186 h89, Nvidia Freestyle up
+Gui, 1: Add, Button, gFF1FreestyleInstal x16 y104 w55 h23, Instal
+Gui, 1: Add, Button, gFF1FreestyleBack x128 y104 w55 h23, BackUp
+Gui, 1: Add, Button, gFF1FreestyleRes x128 y136 w55 h23, Restore
+Gui, 1: Add, Button, gFF1FreestyleKill x16 y136 w55 h23, Kill Nv
 
 Gui, 1: Tab, 6 	;==============ссылки=====================================================================ссылки====Tab
 
@@ -1155,42 +1172,19 @@ if (Map2toggle == 4)
 {
 run_param:="https://yuanshen.site/"
 }
-;=========1 карта
-GroupAdd, GroupNameMap1337, Teyvat Interactive Map
-GroupAdd, GroupNameMap1337, Интерактивная карта Тейвата
-GroupAdd, GroupNameMap1337, Teyvat Interactive Map
-GroupAdd, GroupNameMap1337, Interaktive Karte von Teyvat
-GroupAdd, GroupNameMap1337, 提瓦特互动地图
-GroupAdd, GroupNameMap1337, 提瓦特互動地圖
-GroupAdd, GroupNameMap1337, Carte interactive de Teyvat
 
-GroupAdd, GroupNameMap1337, Архипелаг Золотого яблока
-GroupAdd, GroupNameMap1337, Golden Apple Archipelago
-GroupAdd, GroupNameMap1337, Goldapfelarchipel
-GroupAdd, GroupNameMap1337, 金苹果群岛
-GroupAdd, GroupNameMap1337, 金蘋果群島
-GroupAdd, GroupNameMap1337, Archipel de la pomme dorée
 
-GroupAdd, GroupNameMap1337, Энканомия -
-GroupAdd, GroupNameMap1337, Enkanomiya -
-GroupAdd, GroupNameMap1337, Энканомия
-GroupAdd, GroupNameMap1337, Enkanomiya
-GroupAdd, GroupNameMap1337, 淵下宮
-GroupAdd, GroupNameMap1337, 渊下宫
-;========2 карта
-GroupAdd, GroupNameMap1337, Genshin Impact Interactive World Map
-GroupAdd, GroupNameMap1337, Интерактивная карта мира Genshin Impact
 
-GroupAdd, GroupNameMap1337, Enkanomiya Map - Genshin Impact Interactive Map
-GroupAdd, GroupNameMap1337, Карта Энканомия - интерактивная карта Genshin Impac
-;========3 карта
-GroupAdd, GroupNameMap1337, Genshin Impact Interactive Map | Map Genie
-GroupAdd, GroupNameMap1337, Интерактивная карта воздействия Геншина | Карта Genie
-;========4 карта
-GroupAdd, GroupNameMap1337, Original God Map
-GroupAdd, GroupNameMap1337, Оригинальная карта бога
-GroupAdd, GroupNameMap1337, 原神地图
-GroupAdd, GroupNameMap1337, Genshin Map
+
+;=============================Получить список названия окон карт "GroupNameMap1337.txt" и распределить их в группу
+FileRead, GroupNameMap1337Var, %A_ScriptDir%\data\GroupNameMap1337.txt
+Loop, parse, GroupNameMap1337Var, `n, `r
+{
+VarLoopFieldEdit1:=A_LoopField
+VarLoopFieldEdit1 := RegExReplace(VarLoopFieldEdit1, "mi);.*", "")
+if (VarLoopFieldEdit1 != "")
+GroupAdd, GroupNameMap1337, %VarLoopFieldEdit1%
+} 
 
 
 
@@ -1301,9 +1295,6 @@ Gui, 99: Show, Hide w%HpBarW% h%HpBarH% x%HpBarX% y%HpBarY%, %WinName%
 hwndGuihamdlewindow := WinExist()
 Gui, 99: Cancel
 
-if AutoExitAHK
-SetTimer, ExitOnGameClose, 3000
-
 
 
 ;====================================================================проверить обнову и покрасить значек
@@ -1374,7 +1365,8 @@ FileRemoveDir, update, 1
 
 
 
-
+if AutoExitAHK
+SetTimer, ExitOnGameClose, 3000
 
 
 
@@ -1418,332 +1410,11 @@ if (x2name == "genConfig.ini")
 		FileCopy, %x2dir%\soundall\*.mid, %A_ScriptDir%\data\soundall\, 1 	;копируем миди файлы из папки со скриптом в новую
 		FileCopy, %x2dir%\midi_config.json, %A_ScriptDir%\data\midi_config.json, 1 	;копируем миди конфиг из папки со скриптом в новую
 		}
-	IniRead, KeyboardVID, %FileVarImport%, Extra, KeyboardVID
-	if !(KeyboardVID = "ERROR")
-IniWrite, %KeyboardVID%, data\genConfig.ini, Extra, KeyboardVID
-	IniRead, KeyboardPID, %FileVarImport%, Extra, KeyboardPID
-	if !(KeyboardPID = "ERROR")
-IniWrite, %KeyboardPID%, data\genConfig.ini, Extra, KeyboardPID
-	IniRead, MouseVID, %FileVarImport%, Extra, MouseVID
-	if !(MouseVID = "ERROR")
-IniWrite, %MouseVID%, data\genConfig.ini, Extra, MouseVID
-	IniRead, MousePID, %FileVarImport%, Extra, MousePID
-	if !(MousePID = "ERROR")
-IniWrite, %MousePID%, data\genConfig.ini, Extra, MousePID
-	IniRead, InterceptionFishMouseMoveX, %FileVarImport%, Extra, InterceptionFishMouseMoveX
-	if !(InterceptionFishMouseMoveX = "ERROR")
-IniWrite, %InterceptionFishMouseMoveX%, data\genConfig.ini, Extra, InterceptionFishMouseMoveX
-	IniRead, InterceptionFishMouseMoveY, %FileVarImport%, Extra, InterceptionFishMouseMoveY
-	if !(InterceptionFishMouseMoveY = "ERROR")
-IniWrite, %InterceptionFishMouseMoveY%, data\genConfig.ini, Extra, InterceptionFishMouseMoveY
-	IniRead, InterceptionVentiMouseMoveX, %FileVarImport%, Extra, InterceptionVentiMouseMoveX
-	if !(InterceptionVentiMouseMoveX = "ERROR")
-IniWrite, %InterceptionVentiMouseMoveX%, data\genConfig.ini, Extra, InterceptionVentiMouseMoveX
-	IniRead, InterceptionVentiMouseMoveY, %FileVarImport%, Extra, InterceptionVentiMouseMoveY
-	if !(InterceptionVentiMouseMoveY = "ERROR")
-IniWrite, %InterceptionVentiMouseMoveY%, data\genConfig.ini, Extra, InterceptionVentiMouseMoveY
-	IniRead, Prozra4nostiFis, %FileVarImport%, Fish, Prozra4nostiFis
-	if !(Prozra4nostiFis = "ERROR")
-IniWrite, %Prozra4nostiFis%, data\genConfig.ini, Fish, Prozra4nostiFis
-	IniRead, OttenokFis, %FileVarImport%, Fish, OttenokFis
-	if !(OttenokFis = "ERROR")
-IniWrite, %OttenokFis%, data\genConfig.ini, Fish, OttenokFis
-	IniRead, OptimizationFis, %FileVarImport%, Fish, OptimizationFis
-	if !(OptimizationFis = "ERROR")
-IniWrite, %OptimizationFis%, data\genConfig.ini, Fish, OptimizationFis
-	IniRead, Highperformancemode, %FileVarImport%, Setings, Highperformancemode
-	if !(Highperformancemode = "ERROR")
-IniWrite, %Highperformancemode%, data\genConfig.ini, Setings, Highperformancemode
-	IniRead, ScWinrenamer, %FileVarImport%, Setings, ScWinrenamer ; проверка Winrenamer
-	if !(ScWinrenamer = "ERROR")
-IniWrite, %ScWinrenamer%, data\genConfig.ini, Setings, ScWinrenamer ; проверка Winrenamer
-	IniRead, ScRenamer, %FileVarImport%, Setings, ScRenamer ; проверка Renamera
-	if !(ScRenamer = "ERROR")
-IniWrite, %ScRenamer%, data\genConfig.ini, Setings, ScRenamer ; проверка Renamera
-	IniRead, ScHachCh, %FileVarImport%, Setings, ScHachCh ; проверка ScHachCh
-	if !(ScHachCh = "ERROR")
-IniWrite, %ScHachCh%, data\genConfig.ini, Setings, ScHachCh ; проверка ScHachCh
-	IniRead, ScRandomT, %FileVarImport%, Setings, ScRandomT ; проверка рандом таймер
-	if !(ScRandomT = "ERROR")
-IniWrite, %ScRandomT%, data\genConfig.ini, Setings, ScRandomT ; проверка рандом таймер
-	IniRead, ScOverlay, %FileVarImport%, Setings, ScOverlay ; проверка uid overlay
-	if !(ScOverlay = "ERROR")
-IniWrite, %ScOverlay%, data\genConfig.ini, Setings, ScOverlay ; проверка uid overlay
-	IniRead, DefaultJopaTrue, %FileVarImport%, Extra, DefaultJopaTrue
-	if !(DefaultJopaTrue = "ERROR")
-IniWrite, %DefaultJopaTrue%, data\genConfig.ini, Extra, DefaultJopaTrue
-	IniRead, key_animcancel, %FileVarImport%, Binds, key_animcancel
-	if !(key_animcancel = "ERROR")
-IniWrite, %key_animcancel%, data\genConfig.ini, Binds, key_animcancel
-	IniRead, key_map, %FileVarImport%, Binds, key_map
-	if !(key_map = "ERROR")
-IniWrite, %key_map%, data\genConfig.ini, Binds, key_map
-	IniRead, key_autowalk, %FileVarImport%, Binds, key_autowalk
-	if !(key_autowalk = "ERROR")
-IniWrite, %key_autowalk%, data\genConfig.ini, Binds, key_autowalk
-	IniRead, key_overlay, %FileVarImport%, Binds, key_overlay
-	if !(key_overlay = "ERROR")
-IniWrite, %key_overlay%, data\genConfig.ini, Binds, key_overlay
-	IniRead, key_fastlyt, %FileVarImport%, Binds, key_fastlyt
-	if !(key_fastlyt = "ERROR")
-IniWrite, %key_fastlyt%, data\genConfig.ini, Binds, key_fastlyt
-	IniRead, key_skipNPS, %FileVarImport%, Binds, key_skipNPS
-	if !(key_skipNPS = "ERROR")
-IniWrite, %key_skipNPS%, data\genConfig.ini, Binds, key_skipNPS
-	IniRead, key_bhop, %FileVarImport%, Binds, key_bhop
-	if !(key_bhop = "ERROR")
-IniWrite, %key_bhop%, data\genConfig.ini, Binds, key_bhop
-	IniRead, key_autoswim, %FileVarImport%, Binds, key_autoswim
-	if !(key_autoswim = "ERROR")
-IniWrite, %key_autoswim%, data\genConfig.ini, Binds, key_autoswim
-	IniRead, key_vi4er_sens, %FileVarImport%, Binds, key_vi4er_sens
-	if !(key_vi4er_sens = "ERROR")
-IniWrite, %key_vi4er_sens%, data\genConfig.ini, Binds, key_vi4er_sens
-	IniRead, FIXchat, %FileVarImport%, Setings, FIXchat
-	if !(FIXchat = "ERROR")
-IniWrite, %FIXchat%, data\genConfig.ini, Setings, FIXchat
-	IniRead, CheckUpdatePic, %FileVarImport%, Setings, CheckUpdatePic
-	if !(CheckUpdatePic = "ERROR")
-IniWrite, %CheckUpdatePic%, data\genConfig.ini, Setings, CheckUpdatePic
-	IniRead, AutoExitAHK, %FileVarImport%, Setings, AutoExitAHK
-	if !(AutoExitAHK = "ERROR")
-IniWrite, %AutoExitAHK%, data\genConfig.ini, Setings, AutoExitAHK
-	IniRead, IsAdmin, %FileVarImport%, Setings, IsAdmin
-	if !(IsAdmin = "ERROR")
-IniWrite, %IsAdmin%, data\genConfig.ini, Setings, IsAdmin
-	IniRead, MousemoveBow, %FileVarImport%, Extra, MousemoveBow 	;двигать мышку вправо когда идет стрельба с макроса на винапи
-	if !(MousemoveBow = "ERROR")
-IniWrite, %MousemoveBow%, data\genConfig.ini, Extra, MousemoveBow 	;двигать мышку вправо когда идет стрельба с макроса на винапи
-	IniRead, FishMouseMoveX, %FileVarImport%, Extra, FishMouseMoveX 	;сколько двигать для фишль по X = 43 на дефолтных настройках
-	if !(FishMouseMoveX = "ERROR")
-IniWrite, %FishMouseMoveX%, data\genConfig.ini, Extra, FishMouseMoveX 	;сколько двигать для фишль по X = 43 на дефолтных настройках
-	IniRead, FishMouseMoveY, %FileVarImport%, Extra, FishMouseMoveY 	;сколько двигать для фишль по Y = 0
-	if !(FishMouseMoveY = "ERROR")
-IniWrite, %FishMouseMoveY%, data\genConfig.ini, Extra, FishMouseMoveY 	;сколько двигать для фишль по Y = 0
-	IniRead, VentiMouseMoveX, %FileVarImport%, Extra, VentiMouseMoveX 	;двигать для венти по X = 43 на дефолтных настройках
-	if !(VentiMouseMoveX = "ERROR")
-IniWrite, %VentiMouseMoveX%, data\genConfig.ini, Extra, VentiMouseMoveX 	;двигать для венти по X = 43 на дефолтных настройках
-	IniRead, VentiMouseMoveY, %FileVarImport%, Extra, VentiMouseMoveY 	;двигать для венти по X = 0
-	if !(VentiMouseMoveY = "ERROR")
-IniWrite, %VentiMouseMoveY%, data\genConfig.ini, Extra, VentiMouseMoveY 	;двигать для венти по X = 0
-	IniRead, BrauzerCheck, %FileVarImport%, Setings, BrauzerCheck ; проверка браузера
-	if !(BrauzerCheck = "ERROR")
-IniWrite, %BrauzerCheck%, data\genConfig.ini, Setings, BrauzerCheck ; проверка браузера
-	IniRead, BrauzerPick, %FileVarImport%, Setings, BrauzerPick ; выбор браузера
-	if !(BrauzerPick = "ERROR")
-IniWrite, %BrauzerPick%, data\genConfig.ini, Setings, BrauzerPick ; выбор браузера
-	IniRead, Map2toggle, %FileVarImport%, Setings, Map2toggle
-	if !(Map2toggle = "ERROR")
-IniWrite, %Map2toggle%, data\genConfig.ini, Setings, Map2toggle
-	IniRead, gameexe1337, %FileVarImport%, Setings, GameExe	; исполняемый файл игры
-	if !(gameexe1337 = "ERROR")
-IniWrite, %gameexe1337%, data\genConfig.ini, Setings, GameExe	; исполняемый файл игры
-	IniRead, ONregreadDir, %FileVarImport%, Setings, ONregreadDir ; поиск папки в реестре для откл кастсцен
-	if !(ONregreadDir = "ERROR")
-IniWrite, %ONregreadDir%, data\genConfig.ini, Setings, ONregreadDir ; поиск папки в реестре для откл кастсцен
-	IniRead, DirGame, %FileVarImport%, Setings, DirGame
-	if !(DirGame = "ERROR")
-IniWrite, %DirGame%, data\genConfig.ini, Setings, DirGame
-	IniRead, metodVvoda, %FileVarImport%, Setings, metodVvoda
-	if !(metodVvoda = "ERROR")
-IniWrite, %metodVvoda%, data\genConfig.ini, Setings, metodVvoda
-	IniRead, showtooltipVvoba, %FileVarImport%, Setings, showtooltipVvoba
-	if !(showtooltipVvoba = "ERROR")
-IniWrite, %showtooltipVvoba%, data\genConfig.ini, Setings, showtooltipVvoba
-	IniRead, showmegui, %FileVarImport%, Setings, showmegui
-	if !(showmegui = "ERROR")
-IniWrite, %showmegui%, data\genConfig.ini, Setings, showmegui
-	IniRead, Checkbox1map, %FileVarImport%, Setings, Checkbox1map
-	if !(Checkbox1map = "ERROR")
-IniWrite, %Checkbox1map%, data\genConfig.ini, Setings, Checkbox1map
-	IniRead, Checkbox1overlay, %FileVarImport%, Setings, Checkbox1overlay
-	if !(Checkbox1overlay = "ERROR")
-IniWrite, %Checkbox1overlay%, data\genConfig.ini, Setings, Checkbox1overlay
-	IniRead, Checkbox1autowalk, %FileVarImport%, Setings, Checkbox1autowalk
-	if !(Checkbox1autowalk = "ERROR")
-IniWrite, %Checkbox1autowalk%, data\genConfig.ini, Setings, Checkbox1autowalk
-	IniRead, Checkbox1fastlyt, %FileVarImport%, Setings, Checkbox1fastlyt
-	if !(Checkbox1fastlyt = "ERROR")
-IniWrite, %Checkbox1fastlyt%, data\genConfig.ini, Setings, Checkbox1fastlyt
-	IniRead, Checkbox1skipNPS, %FileVarImport%, Setings, Checkbox1skipNPS
-	if !(Checkbox1skipNPS = "ERROR")
-IniWrite, %Checkbox1skipNPS%, data\genConfig.ini, Setings, Checkbox1skipNPS
-	IniRead, Checkbox1autoswim, %FileVarImport%, Setings, Checkbox1autoswim
-	if !(Checkbox1autoswim = "ERROR")
-IniWrite, %Checkbox1autoswim%, data\genConfig.ini, Setings, Checkbox1autoswim
-	IniRead, Checkbox1vi4ersens, %FileVarImport%, Setings, Checkbox1vi4ersens
-	if !(Checkbox1vi4ersens = "ERROR")
-IniWrite, %Checkbox1vi4ersens%, data\genConfig.ini, Setings, Checkbox1vi4ersens
-	IniRead, Checkbox1animcancel, %FileVarImport%, Setings, Checkbox1animcancel
-	if !(Checkbox1animcancel = "ERROR")
-IniWrite, %Checkbox1animcancel%, data\genConfig.ini, Setings, Checkbox1animcancel
-	IniRead, Checkbox1bhop, %FileVarImport%, Setings, Checkbox1bhop
-	if !(Checkbox1bhop = "ERROR")
-IniWrite, %Checkbox1bhop%, data\genConfig.ini, Setings, Checkbox1bhop
-	IniRead, Checkbox1bhopDelay, %FileVarImport%, Setings, Checkbox1bhopDelay
-	if !(Checkbox1bhopDelay = "ERROR")
-IniWrite, %Checkbox1bhopDelay%, data\genConfig.ini, Setings, Checkbox1bhopDelay
-	IniRead, Checkbox1bhopDelayMs, %FileVarImport%, Setings, Checkbox1bhopDelayMs
-	if !(Checkbox1bhopDelayMs = "ERROR")
-IniWrite, %Checkbox1bhopDelayMs%, data\genConfig.ini, Setings, Checkbox1bhopDelayMs
-	IniRead, RegeditExport1, %FileVarImport%, Setings, RegeditExport1
-	if !(RegeditExport1 = "ERROR")
-IniWrite, %RegeditExport1%, data\genConfig.ini, Setings, RegeditExport1
-	IniRead, RegeditExport2, %FileVarImport%, Setings, RegeditExport2
-	if !(RegeditExport2 = "ERROR")
-IniWrite, %RegeditExport2%, data\genConfig.ini, Setings, RegeditExport2
-	IniRead, RegeditExport3, %FileVarImport%, Setings, RegeditExport3
-	if !(RegeditExport3 = "ERROR")
-IniWrite, %RegeditExport3%, data\genConfig.ini, Setings, RegeditExport3
-	IniRead, RegeditExport4, %FileVarImport%, Setings, RegeditExport4
-	if !(RegeditExport4 = "ERROR")
-IniWrite, %RegeditExport4%, data\genConfig.ini, Setings, RegeditExport4
-	IniRead, RegeditExport5, %FileVarImport%, Setings, RegeditExport5
-	if !(RegeditExport5 = "ERROR")
-IniWrite, %RegeditExport5%, data\genConfig.ini, Setings, RegeditExport5
-	IniRead, GlLanguage, %FileVarImport%, Setings, GlLanguage
-	if !(GlLanguage = "ERROR")
-IniWrite, %GlLanguage%, data\genConfig.ini, Setings, GlLanguage
-	IniRead, key_LabelNumpad0, %FileVarImport%, Binds, key_LabelNumpad0
-	if !(key_LabelNumpad0 = "ERROR")
-IniWrite, %key_LabelNumpad0%, data\genConfig.ini, Binds, key_LabelNumpad0
-	IniRead, key_LabelNumpad1, %FileVarImport%, Binds, key_LabelNumpad1
-	if !(key_LabelNumpad1 = "ERROR")
-IniWrite, %key_LabelNumpad1%, data\genConfig.ini, Binds, key_LabelNumpad1
-	IniRead, key_LabelNumpad2, %FileVarImport%, Binds, key_LabelNumpad2
-	if !(key_LabelNumpad2 = "ERROR")
-IniWrite, %key_LabelNumpad2%, data\genConfig.ini, Binds, key_LabelNumpad2
-	IniRead, key_LabelNumpad3, %FileVarImport%, Binds, key_LabelNumpad3
-	if !(key_LabelNumpad3 = "ERROR")
-IniWrite, %key_LabelNumpad3%, data\genConfig.ini, Binds, key_LabelNumpad3
-	IniRead, key_LabelNumpad4, %FileVarImport%, Binds, key_LabelNumpad4
-	if !(key_LabelNumpad4 = "ERROR")
-IniWrite, %key_LabelNumpad4%, data\genConfig.ini, Binds, key_LabelNumpad4
-	IniRead, key_LabelNumpad5, %FileVarImport%, Binds, key_LabelNumpad5
-	if !(key_LabelNumpad5 = "ERROR")
-IniWrite, %key_LabelNumpad5%, data\genConfig.ini, Binds, key_LabelNumpad5
-	IniRead, key_LabelNumpad6, %FileVarImport%, Binds, key_LabelNumpad6
-	if !(key_LabelNumpad6 = "ERROR")
-IniWrite, %key_LabelNumpad6%, data\genConfig.ini, Binds, key_LabelNumpad6
-	IniRead, key_LabelNumpad7, %FileVarImport%, Binds, key_LabelNumpad7
-	if !(key_LabelNumpad7 = "ERROR")
-IniWrite, %key_LabelNumpad7%, data\genConfig.ini, Binds, key_LabelNumpad7
-	IniRead, key_LabelNumpad8, %FileVarImport%, Binds, key_LabelNumpad8
-	if !(key_LabelNumpad8 = "ERROR")
-IniWrite, %key_LabelNumpad8%, data\genConfig.ini, Binds, key_LabelNumpad8
-	IniRead, key_LabelNumpad9, %FileVarImport%, Binds, key_LabelNumpad9
-	if !(key_LabelNumpad9 = "ERROR")
-IniWrite, %key_LabelNumpad9%, data\genConfig.ini, Binds, key_LabelNumpad9
-	IniRead, key_LabelNumpadAdd, %FileVarImport%, Binds, key_LabelNumpadAdd
-	if !(key_LabelNumpadAdd = "ERROR")
-IniWrite, %key_LabelNumpadAdd%, data\genConfig.ini, Binds, key_LabelNumpadAdd
+		
 
 
-	IniRead, key_LabelANumpadAdd, %FileVarImport%, Binds, key_LabelANumpadAdd
-	if !(key_LabelANumpadAdd = "ERROR")
-IniWrite, %key_LabelANumpadAdd%, data\genConfig.ini, Binds, key_LabelANumpadAdd
-
-	IniRead, key_LabelNumpadSub, %FileVarImport%, Binds, key_LabelNumpadSub
-	if !(key_LabelNumpadSub = "ERROR")
-IniWrite, %key_LabelNumpadSub%, data\genConfig.ini, Binds, key_LabelNumpadSub
-
-	IniRead, key_LabelANumpadSub, %FileVarImport%, Binds, key_LabelANumpadSub
-	if !(key_LabelANumpadSub = "ERROR")
-IniWrite, %key_LabelANumpadSub%, data\genConfig.ini, Binds, key_LabelANumpadSub
-
-
-	IniRead, key_LabelANumpad0, %FileVarImport%, Binds, key_LabelANumpad0
-	if !(key_LabelANumpad0 = "ERROR")
-IniWrite, %key_LabelANumpad0%, data\genConfig.ini, Binds, key_LabelANumpad0
-	IniRead, key_LabelANumpad1, %FileVarImport%, Binds, key_LabelANumpad1
-	if !(key_LabelANumpad1 = "ERROR")
-IniWrite, %key_LabelANumpad1%, data\genConfig.ini, Binds, key_LabelANumpad1
-	IniRead, key_LabelANumpad2, %FileVarImport%, Binds, key_LabelANumpad2
-	if !(key_LabelANumpad2 = "ERROR")
-IniWrite, %key_LabelANumpad2%, data\genConfig.ini, Binds, key_LabelANumpad2
-	IniRead, key_LabelANumpad3, %FileVarImport%, Binds, key_LabelANumpad3
-	if !(key_LabelANumpad3 = "ERROR")
-IniWrite, %key_LabelANumpad3%, data\genConfig.ini, Binds, key_LabelANumpad3
-	IniRead, key_LabelANumpad4, %FileVarImport%, Binds, key_LabelANumpad4
-	if !(key_LabelANumpad4 = "ERROR")
-IniWrite, %key_LabelANumpad4%, data\genConfig.ini, Binds, key_LabelANumpad4
-	IniRead, key_LabelANumpad5, %FileVarImport%, Binds, key_LabelANumpad5
-	if !(key_LabelANumpad5 = "ERROR")
-IniWrite, %key_LabelANumpad5%, data\genConfig.ini, Binds, key_LabelANumpad5
-	IniRead, key_LabelANumpad6, %FileVarImport%, Binds, key_LabelANumpad6
-	if !(key_LabelANumpad6 = "ERROR")
-IniWrite, %key_LabelANumpad6%, data\genConfig.ini, Binds, key_LabelANumpad6
-	IniRead, key_LabelANumpad7, %FileVarImport%, Binds, key_LabelANumpad7
-	if !(key_LabelANumpad7 = "ERROR")
-IniWrite, %key_LabelANumpad7%, data\genConfig.ini, Binds, key_LabelANumpad7
-	IniRead, key_LabelANumpad8, %FileVarImport%, Binds, key_LabelANumpad8
-	if !(key_LabelANumpad8 = "ERROR")
-IniWrite, %key_LabelANumpad8%, data\genConfig.ini, Binds, key_LabelANumpad8
-	IniRead, key_LabelANumpad9, %FileVarImport%, Binds, key_LabelANumpad9
-	if !(key_LabelANumpad9 = "ERROR")
-IniWrite, %key_LabelANumpad9%, data\genConfig.ini, Binds, key_LabelANumpad9
-
-	IniRead, ExManualMode, %FileVarImport%, Expedition, ExManualMode
-	if !(ExManualMode = "ERROR")
-IniWrite, %ExManualMode%, data\genConfig.ini, Expedition, ExManualMode
-	IniRead, ExMondK1, %FileVarImport%, Expedition, ExMondK1
-	if !(ExMondK1 = "ERROR")
-IniWrite, %ExMondK1%, data\genConfig.ini, Expedition, ExMondK1
-	IniRead, ExMondK2, %FileVarImport%, Expedition, ExMondK2
-	if !(ExMondK2 = "ERROR")
-IniWrite, %ExMondK2%, data\genConfig.ini, Expedition, ExMondK2
-	IniRead, ExMondK3, %FileVarImport%, Expedition, ExMondK3
-	if !(ExMondK3 = "ERROR")
-IniWrite, %ExMondK3%, data\genConfig.ini, Expedition, ExMondK3
-	IniRead, ExMondK4, %FileVarImport%, Expedition, ExMondK4
-	if !(ExMondK4 = "ERROR")
-IniWrite, %ExMondK4%, data\genConfig.ini, Expedition, ExMondK4
-	IniRead, ExMondK5, %FileVarImport%, Expedition, ExMondK5
-	if !(ExMondK5 = "ERROR")
-IniWrite, %ExMondK5%, data\genConfig.ini, Expedition, ExMondK5
-	IniRead, ExMondK6, %FileVarImport%, Expedition, ExMondK6
-	if !(ExMondK6 = "ERROR")
-IniWrite, %ExMondK6%, data\genConfig.ini, Expedition, ExMondK6
-	IniRead, ExLiyK1, %FileVarImport%, Expedition, ExLiyK1
-	if !(ExLiyK1 = "ERROR")
-IniWrite, %ExLiyK1%, data\genConfig.ini, Expedition, ExLiyK1
-	IniRead, ExLiyK2, %FileVarImport%, Expedition, ExLiyK2
-	if !(ExLiyK2 = "ERROR")
-IniWrite, %ExLiyK2%, data\genConfig.ini, Expedition, ExLiyK2
-	IniRead, ExLiyK3, %FileVarImport%, Expedition, ExLiyK3
-	if !(ExLiyK3 = "ERROR")
-IniWrite, %ExLiyK3%, data\genConfig.ini, Expedition, ExLiyK3
-	IniRead, ExLiyK4, %FileVarImport%, Expedition, ExLiyK4
-	if !(ExLiyK4 = "ERROR")
-IniWrite, %ExLiyK4%, data\genConfig.ini, Expedition, ExLiyK4
-	IniRead, ExLiyK5, %FileVarImport%, Expedition, ExLiyK5
-	if !(ExLiyK5 = "ERROR")
-IniWrite, %ExLiyK5%, data\genConfig.ini, Expedition, ExLiyK5
-	IniRead, ExLiyK6, %FileVarImport%, Expedition, ExLiyK6
-	if !(ExLiyK6 = "ERROR")
-IniWrite, %ExLiyK6%, data\genConfig.ini, Expedition, ExLiyK6
-	IniRead, ExInaK1, %FileVarImport%, Expedition, ExInaK1
-	if !(ExInaK1 = "ERROR")
-IniWrite, %ExInaK1%, data\genConfig.ini, Expedition, ExInaK1
-	IniRead, ExInaK2, %FileVarImport%, Expedition, ExInaK2
-	if !(ExInaK2 = "ERROR")
-IniWrite, %ExInaK2%, data\genConfig.ini, Expedition, ExInaK2
-	IniRead, ExInaK3, %FileVarImport%, Expedition, ExInaK3
-	if !(ExInaK3 = "ERROR")
-IniWrite, %ExInaK3%, data\genConfig.ini, Expedition, ExInaK3
-	IniRead, ExInaK4, %FileVarImport%, Expedition, ExInaK4
-	if !(ExInaK4 = "ERROR")
-IniWrite, %ExInaK4%, data\genConfig.ini, Expedition, ExInaK4
-	IniRead, ExInaK5, %FileVarImport%, Expedition, ExInaK5
-	if !(ExInaK5 = "ERROR")
-IniWrite, %ExInaK5%, data\genConfig.ini, Expedition, ExInaK5
-	IniRead, ExInaK6, %FileVarImport%, Expedition, ExInaK6
-	if !(ExInaK6 = "ERROR")
-IniWrite, %ExInaK6%, data\genConfig.ini, Expedition, ExInaK6
-
-	IniRead, TTimerahk1, %FileVarImport%, Setings, TTimerahk1
-	if !(TTimerahk1 = "ERROR")
-IniWrite, %TTimerahk1%, data\genConfig.ini, Setings, TTimerahk1
+FileVarImport2=data\genConfig.ini
+Gosub ImportSettLabel1
 
 
 	Reload
@@ -1754,7 +1425,327 @@ IniWrite, %TTimerahk1%, data\genConfig.ini, Setings, TTimerahk1
 	}
 return
 
-
+;==========================================метка с импортом настроек, %FileVarImport% откуда читать, %FileVarImport2% куда писать
+ImportSettLabel1:
+	IniRead, KeyboardVID, %FileVarImport%, Extra, KeyboardVID
+	if !(KeyboardVID = "ERROR")
+IniWrite, %KeyboardVID%, %FileVarImport2%, Extra, KeyboardVID
+	IniRead, KeyboardPID, %FileVarImport%, Extra, KeyboardPID
+	if !(KeyboardPID = "ERROR")
+IniWrite, %KeyboardPID%, %FileVarImport2%, Extra, KeyboardPID
+	IniRead, MouseVID, %FileVarImport%, Extra, MouseVID
+	if !(MouseVID = "ERROR")
+IniWrite, %MouseVID%, %FileVarImport2%, Extra, MouseVID
+	IniRead, MousePID, %FileVarImport%, Extra, MousePID
+	if !(MousePID = "ERROR")
+IniWrite, %MousePID%, %FileVarImport2%, Extra, MousePID
+	IniRead, InterceptionFishMouseMoveX, %FileVarImport%, Extra, InterceptionFishMouseMoveX
+	if !(InterceptionFishMouseMoveX = "ERROR")
+IniWrite, %InterceptionFishMouseMoveX%, %FileVarImport2%, Extra, InterceptionFishMouseMoveX
+	IniRead, InterceptionFishMouseMoveY, %FileVarImport%, Extra, InterceptionFishMouseMoveY
+	if !(InterceptionFishMouseMoveY = "ERROR")
+IniWrite, %InterceptionFishMouseMoveY%, %FileVarImport2%, Extra, InterceptionFishMouseMoveY
+	IniRead, InterceptionVentiMouseMoveX, %FileVarImport%, Extra, InterceptionVentiMouseMoveX
+	if !(InterceptionVentiMouseMoveX = "ERROR")
+IniWrite, %InterceptionVentiMouseMoveX%, %FileVarImport2%, Extra, InterceptionVentiMouseMoveX
+	IniRead, InterceptionVentiMouseMoveY, %FileVarImport%, Extra, InterceptionVentiMouseMoveY
+	if !(InterceptionVentiMouseMoveY = "ERROR")
+IniWrite, %InterceptionVentiMouseMoveY%, %FileVarImport2%, Extra, InterceptionVentiMouseMoveY
+	IniRead, Prozra4nostiFis, %FileVarImport%, Fish, Prozra4nostiFis
+	if !(Prozra4nostiFis = "ERROR")
+IniWrite, %Prozra4nostiFis%, %FileVarImport2%, Fish, Prozra4nostiFis
+	IniRead, OttenokFis, %FileVarImport%, Fish, OttenokFis
+	if !(OttenokFis = "ERROR")
+IniWrite, %OttenokFis%, %FileVarImport2%, Fish, OttenokFis
+	IniRead, OptimizationFis, %FileVarImport%, Fish, OptimizationFis
+	if !(OptimizationFis = "ERROR")
+IniWrite, %OptimizationFis%, %FileVarImport2%, Fish, OptimizationFis
+	IniRead, Highperformancemode, %FileVarImport%, Setings, Highperformancemode
+	if !(Highperformancemode = "ERROR")
+IniWrite, %Highperformancemode%, %FileVarImport2%, Setings, Highperformancemode
+	IniRead, ScWinrenamer, %FileVarImport%, Setings, ScWinrenamer ; проверка Winrenamer
+	if !(ScWinrenamer = "ERROR")
+IniWrite, %ScWinrenamer%, %FileVarImport2%, Setings, ScWinrenamer ; проверка Winrenamer
+	IniRead, ScRenamer, %FileVarImport%, Setings, ScRenamer ; проверка Renamera
+	if !(ScRenamer = "ERROR")
+IniWrite, %ScRenamer%, %FileVarImport2%, Setings, ScRenamer ; проверка Renamera
+	IniRead, ScHachCh, %FileVarImport%, Setings, ScHachCh ; проверка ScHachCh
+	if !(ScHachCh = "ERROR")
+IniWrite, %ScHachCh%, %FileVarImport2%, Setings, ScHachCh ; проверка ScHachCh
+	IniRead, ScRandomT, %FileVarImport%, Setings, ScRandomT ; проверка рандом таймер
+	if !(ScRandomT = "ERROR")
+IniWrite, %ScRandomT%, %FileVarImport2%, Setings, ScRandomT ; проверка рандом таймер
+	IniRead, ScOverlay, %FileVarImport%, Setings, ScOverlay ; проверка uid overlay
+	if !(ScOverlay = "ERROR")
+IniWrite, %ScOverlay%, %FileVarImport2%, Setings, ScOverlay ; проверка uid overlay
+	IniRead, DefaultJopaTrue, %FileVarImport%, Extra, DefaultJopaTrue
+	if !(DefaultJopaTrue = "ERROR")
+IniWrite, %DefaultJopaTrue%, %FileVarImport2%, Extra, DefaultJopaTrue
+	IniRead, key_animcancel, %FileVarImport%, Binds, key_animcancel
+	if !(key_animcancel = "ERROR")
+IniWrite, %key_animcancel%, %FileVarImport2%, Binds, key_animcancel
+	IniRead, key_map, %FileVarImport%, Binds, key_map
+	if !(key_map = "ERROR")
+IniWrite, %key_map%, %FileVarImport2%, Binds, key_map
+	IniRead, key_autowalk, %FileVarImport%, Binds, key_autowalk
+	if !(key_autowalk = "ERROR")
+IniWrite, %key_autowalk%, %FileVarImport2%, Binds, key_autowalk
+	IniRead, key_overlay, %FileVarImport%, Binds, key_overlay
+	if !(key_overlay = "ERROR")
+IniWrite, %key_overlay%, %FileVarImport2%, Binds, key_overlay
+	IniRead, key_fastlyt, %FileVarImport%, Binds, key_fastlyt
+	if !(key_fastlyt = "ERROR")
+IniWrite, %key_fastlyt%, %FileVarImport2%, Binds, key_fastlyt
+	IniRead, key_skipNPS, %FileVarImport%, Binds, key_skipNPS
+	if !(key_skipNPS = "ERROR")
+IniWrite, %key_skipNPS%, %FileVarImport2%, Binds, key_skipNPS
+	IniRead, key_bhop, %FileVarImport%, Binds, key_bhop
+	if !(key_bhop = "ERROR")
+IniWrite, %key_bhop%, %FileVarImport2%, Binds, key_bhop
+	IniRead, key_autoswim, %FileVarImport%, Binds, key_autoswim
+	if !(key_autoswim = "ERROR")
+IniWrite, %key_autoswim%, %FileVarImport2%, Binds, key_autoswim
+	IniRead, key_vi4er_sens, %FileVarImport%, Binds, key_vi4er_sens
+	if !(key_vi4er_sens = "ERROR")
+IniWrite, %key_vi4er_sens%, %FileVarImport2%, Binds, key_vi4er_sens
+	IniRead, FIXchat, %FileVarImport%, Setings, FIXchat
+	if !(FIXchat = "ERROR")
+IniWrite, %FIXchat%, %FileVarImport2%, Setings, FIXchat
+	IniRead, CheckUpdatePic, %FileVarImport%, Setings, CheckUpdatePic
+	if !(CheckUpdatePic = "ERROR")
+IniWrite, %CheckUpdatePic%, %FileVarImport2%, Setings, CheckUpdatePic
+	IniRead, AutoExitAHK, %FileVarImport%, Setings, AutoExitAHK
+	if !(AutoExitAHK = "ERROR")
+IniWrite, %AutoExitAHK%, %FileVarImport2%, Setings, AutoExitAHK
+	IniRead, IsAdmin, %FileVarImport%, Setings, IsAdmin
+	if !(IsAdmin = "ERROR")
+IniWrite, %IsAdmin%, %FileVarImport2%, Setings, IsAdmin
+	IniRead, MousemoveBow, %FileVarImport%, Extra, MousemoveBow 	;двигать мышку вправо когда идет стрельба с макроса на винапи
+	if !(MousemoveBow = "ERROR")
+IniWrite, %MousemoveBow%, %FileVarImport2%, Extra, MousemoveBow 	;двигать мышку вправо когда идет стрельба с макроса на винапи
+	IniRead, FishMouseMoveX, %FileVarImport%, Extra, FishMouseMoveX 	;сколько двигать для фишль по X = 43 на дефолтных настройках
+	if !(FishMouseMoveX = "ERROR")
+IniWrite, %FishMouseMoveX%, %FileVarImport2%, Extra, FishMouseMoveX 	;сколько двигать для фишль по X = 43 на дефолтных настройках
+	IniRead, FishMouseMoveY, %FileVarImport%, Extra, FishMouseMoveY 	;сколько двигать для фишль по Y = 0
+	if !(FishMouseMoveY = "ERROR")
+IniWrite, %FishMouseMoveY%, %FileVarImport2%, Extra, FishMouseMoveY 	;сколько двигать для фишль по Y = 0
+	IniRead, VentiMouseMoveX, %FileVarImport%, Extra, VentiMouseMoveX 	;двигать для венти по X = 43 на дефолтных настройках
+	if !(VentiMouseMoveX = "ERROR")
+IniWrite, %VentiMouseMoveX%, %FileVarImport2%, Extra, VentiMouseMoveX 	;двигать для венти по X = 43 на дефолтных настройках
+	IniRead, VentiMouseMoveY, %FileVarImport%, Extra, VentiMouseMoveY 	;двигать для венти по X = 0
+	if !(VentiMouseMoveY = "ERROR")
+IniWrite, %VentiMouseMoveY%, %FileVarImport2%, Extra, VentiMouseMoveY 	;двигать для венти по X = 0
+	IniRead, BrauzerCheck, %FileVarImport%, Setings, BrauzerCheck ; проверка браузера
+	if !(BrauzerCheck = "ERROR")
+IniWrite, %BrauzerCheck%, %FileVarImport2%, Setings, BrauzerCheck ; проверка браузера
+	IniRead, BrauzerPick, %FileVarImport%, Setings, BrauzerPick ; выбор браузера
+	if !(BrauzerPick = "ERROR")
+IniWrite, %BrauzerPick%, %FileVarImport2%, Setings, BrauzerPick ; выбор браузера
+	IniRead, Map2toggle, %FileVarImport%, Setings, Map2toggle
+	if !(Map2toggle = "ERROR")
+IniWrite, %Map2toggle%, %FileVarImport2%, Setings, Map2toggle
+	IniRead, gameexe1337, %FileVarImport%, Setings, GameExe	; исполняемый файл игры
+	if !(gameexe1337 = "ERROR")
+IniWrite, %gameexe1337%, %FileVarImport2%, Setings, GameExe	; исполняемый файл игры
+	IniRead, ONregreadDir, %FileVarImport%, Setings, ONregreadDir ; поиск папки в реестре для откл кастсцен
+	if !(ONregreadDir = "ERROR")
+IniWrite, %ONregreadDir%, %FileVarImport2%, Setings, ONregreadDir ; поиск папки в реестре для откл кастсцен
+	IniRead, DirGame, %FileVarImport%, Setings, DirGame
+	if !(DirGame = "ERROR")
+IniWrite, %DirGame%, %FileVarImport2%, Setings, DirGame
+	IniRead, metodVvoda, %FileVarImport%, Setings, metodVvoda
+	if !(metodVvoda = "ERROR")
+IniWrite, %metodVvoda%, %FileVarImport2%, Setings, metodVvoda
+	IniRead, showtooltipVvoba, %FileVarImport%, Setings, showtooltipVvoba
+	if !(showtooltipVvoba = "ERROR")
+IniWrite, %showtooltipVvoba%, %FileVarImport2%, Setings, showtooltipVvoba
+	IniRead, showmegui, %FileVarImport%, Setings, showmegui
+	if !(showmegui = "ERROR")
+IniWrite, %showmegui%, %FileVarImport2%, Setings, showmegui
+	IniRead, Checkbox1map, %FileVarImport%, Setings, Checkbox1map
+	if !(Checkbox1map = "ERROR")
+IniWrite, %Checkbox1map%, %FileVarImport2%, Setings, Checkbox1map
+	IniRead, Checkbox1overlay, %FileVarImport%, Setings, Checkbox1overlay
+	if !(Checkbox1overlay = "ERROR")
+IniWrite, %Checkbox1overlay%, %FileVarImport2%, Setings, Checkbox1overlay
+	IniRead, Checkbox1autowalk, %FileVarImport%, Setings, Checkbox1autowalk
+	if !(Checkbox1autowalk = "ERROR")
+IniWrite, %Checkbox1autowalk%, %FileVarImport2%, Setings, Checkbox1autowalk
+	IniRead, Checkbox1fastlyt, %FileVarImport%, Setings, Checkbox1fastlyt
+	if !(Checkbox1fastlyt = "ERROR")
+IniWrite, %Checkbox1fastlyt%, %FileVarImport2%, Setings, Checkbox1fastlyt
+	IniRead, Checkbox1skipNPS, %FileVarImport%, Setings, Checkbox1skipNPS
+	if !(Checkbox1skipNPS = "ERROR")
+IniWrite, %Checkbox1skipNPS%, %FileVarImport2%, Setings, Checkbox1skipNPS
+	IniRead, Checkbox1autoswim, %FileVarImport%, Setings, Checkbox1autoswim
+	if !(Checkbox1autoswim = "ERROR")
+IniWrite, %Checkbox1autoswim%, %FileVarImport2%, Setings, Checkbox1autoswim
+	IniRead, Checkbox1vi4ersens, %FileVarImport%, Setings, Checkbox1vi4ersens
+	if !(Checkbox1vi4ersens = "ERROR")
+IniWrite, %Checkbox1vi4ersens%, %FileVarImport2%, Setings, Checkbox1vi4ersens
+	IniRead, Checkbox1animcancel, %FileVarImport%, Setings, Checkbox1animcancel
+	if !(Checkbox1animcancel = "ERROR")
+IniWrite, %Checkbox1animcancel%, %FileVarImport2%, Setings, Checkbox1animcancel
+	IniRead, Checkbox1bhop, %FileVarImport%, Setings, Checkbox1bhop
+	if !(Checkbox1bhop = "ERROR")
+IniWrite, %Checkbox1bhop%, %FileVarImport2%, Setings, Checkbox1bhop
+	IniRead, Checkbox1bhopDelay, %FileVarImport%, Setings, Checkbox1bhopDelay
+	if !(Checkbox1bhopDelay = "ERROR")
+IniWrite, %Checkbox1bhopDelay%, %FileVarImport2%, Setings, Checkbox1bhopDelay
+	IniRead, Checkbox1bhopDelayMs, %FileVarImport%, Setings, Checkbox1bhopDelayMs
+	if !(Checkbox1bhopDelayMs = "ERROR")
+IniWrite, %Checkbox1bhopDelayMs%, %FileVarImport2%, Setings, Checkbox1bhopDelayMs
+	IniRead, RegeditExport1, %FileVarImport%, Setings, RegeditExport1
+	if !(RegeditExport1 = "ERROR")
+IniWrite, %RegeditExport1%, %FileVarImport2%, Setings, RegeditExport1
+	IniRead, RegeditExport2, %FileVarImport%, Setings, RegeditExport2
+	if !(RegeditExport2 = "ERROR")
+IniWrite, %RegeditExport2%, %FileVarImport2%, Setings, RegeditExport2
+	IniRead, RegeditExport3, %FileVarImport%, Setings, RegeditExport3
+	if !(RegeditExport3 = "ERROR")
+IniWrite, %RegeditExport3%, %FileVarImport2%, Setings, RegeditExport3
+	IniRead, RegeditExport4, %FileVarImport%, Setings, RegeditExport4
+	if !(RegeditExport4 = "ERROR")
+IniWrite, %RegeditExport4%, %FileVarImport2%, Setings, RegeditExport4
+	IniRead, RegeditExport5, %FileVarImport%, Setings, RegeditExport5
+	if !(RegeditExport5 = "ERROR")
+IniWrite, %RegeditExport5%, %FileVarImport2%, Setings, RegeditExport5
+	IniRead, GlLanguage, %FileVarImport%, Setings, GlLanguage
+	if !(GlLanguage = "ERROR")
+IniWrite, %GlLanguage%, %FileVarImport2%, Setings, GlLanguage
+	IniRead, key_LabelNumpad0, %FileVarImport%, Binds, key_LabelNumpad0
+	if !(key_LabelNumpad0 = "ERROR")
+IniWrite, %key_LabelNumpad0%, %FileVarImport2%, Binds, key_LabelNumpad0
+	IniRead, key_LabelNumpad1, %FileVarImport%, Binds, key_LabelNumpad1
+	if !(key_LabelNumpad1 = "ERROR")
+IniWrite, %key_LabelNumpad1%, %FileVarImport2%, Binds, key_LabelNumpad1
+	IniRead, key_LabelNumpad2, %FileVarImport%, Binds, key_LabelNumpad2
+	if !(key_LabelNumpad2 = "ERROR")
+IniWrite, %key_LabelNumpad2%, %FileVarImport2%, Binds, key_LabelNumpad2
+	IniRead, key_LabelNumpad3, %FileVarImport%, Binds, key_LabelNumpad3
+	if !(key_LabelNumpad3 = "ERROR")
+IniWrite, %key_LabelNumpad3%, %FileVarImport2%, Binds, key_LabelNumpad3
+	IniRead, key_LabelNumpad4, %FileVarImport%, Binds, key_LabelNumpad4
+	if !(key_LabelNumpad4 = "ERROR")
+IniWrite, %key_LabelNumpad4%, %FileVarImport2%, Binds, key_LabelNumpad4
+	IniRead, key_LabelNumpad5, %FileVarImport%, Binds, key_LabelNumpad5
+	if !(key_LabelNumpad5 = "ERROR")
+IniWrite, %key_LabelNumpad5%, %FileVarImport2%, Binds, key_LabelNumpad5
+	IniRead, key_LabelNumpad6, %FileVarImport%, Binds, key_LabelNumpad6
+	if !(key_LabelNumpad6 = "ERROR")
+IniWrite, %key_LabelNumpad6%, %FileVarImport2%, Binds, key_LabelNumpad6
+	IniRead, key_LabelNumpad7, %FileVarImport%, Binds, key_LabelNumpad7
+	if !(key_LabelNumpad7 = "ERROR")
+IniWrite, %key_LabelNumpad7%, %FileVarImport2%, Binds, key_LabelNumpad7
+	IniRead, key_LabelNumpad8, %FileVarImport%, Binds, key_LabelNumpad8
+	if !(key_LabelNumpad8 = "ERROR")
+IniWrite, %key_LabelNumpad8%, %FileVarImport2%, Binds, key_LabelNumpad8
+	IniRead, key_LabelNumpad9, %FileVarImport%, Binds, key_LabelNumpad9
+	if !(key_LabelNumpad9 = "ERROR")
+IniWrite, %key_LabelNumpad9%, %FileVarImport2%, Binds, key_LabelNumpad9
+	IniRead, key_LabelNumpadAdd, %FileVarImport%, Binds, key_LabelNumpadAdd
+	if !(key_LabelNumpadAdd = "ERROR")
+IniWrite, %key_LabelNumpadAdd%, %FileVarImport2%, Binds, key_LabelNumpadAdd
+	IniRead, key_LabelANumpadAdd, %FileVarImport%, Binds, key_LabelANumpadAdd
+	if !(key_LabelANumpadAdd = "ERROR")
+IniWrite, %key_LabelANumpadAdd%, %FileVarImport2%, Binds, key_LabelANumpadAdd
+	IniRead, key_LabelNumpadSub, %FileVarImport%, Binds, key_LabelNumpadSub
+	if !(key_LabelNumpadSub = "ERROR")
+IniWrite, %key_LabelNumpadSub%, %FileVarImport2%, Binds, key_LabelNumpadSub
+	IniRead, key_LabelANumpadSub, %FileVarImport%, Binds, key_LabelANumpadSub
+	if !(key_LabelANumpadSub = "ERROR")
+IniWrite, %key_LabelANumpadSub%, %FileVarImport2%, Binds, key_LabelANumpadSub
+	IniRead, key_LabelANumpad0, %FileVarImport%, Binds, key_LabelANumpad0
+	if !(key_LabelANumpad0 = "ERROR")
+IniWrite, %key_LabelANumpad0%, %FileVarImport2%, Binds, key_LabelANumpad0
+	IniRead, key_LabelANumpad1, %FileVarImport%, Binds, key_LabelANumpad1
+	if !(key_LabelANumpad1 = "ERROR")
+IniWrite, %key_LabelANumpad1%, %FileVarImport2%, Binds, key_LabelANumpad1
+	IniRead, key_LabelANumpad2, %FileVarImport%, Binds, key_LabelANumpad2
+	if !(key_LabelANumpad2 = "ERROR")
+IniWrite, %key_LabelANumpad2%, %FileVarImport2%, Binds, key_LabelANumpad2
+	IniRead, key_LabelANumpad3, %FileVarImport%, Binds, key_LabelANumpad3
+	if !(key_LabelANumpad3 = "ERROR")
+IniWrite, %key_LabelANumpad3%, %FileVarImport2%, Binds, key_LabelANumpad3
+	IniRead, key_LabelANumpad4, %FileVarImport%, Binds, key_LabelANumpad4
+	if !(key_LabelANumpad4 = "ERROR")
+IniWrite, %key_LabelANumpad4%, %FileVarImport2%, Binds, key_LabelANumpad4
+	IniRead, key_LabelANumpad5, %FileVarImport%, Binds, key_LabelANumpad5
+	if !(key_LabelANumpad5 = "ERROR")
+IniWrite, %key_LabelANumpad5%, %FileVarImport2%, Binds, key_LabelANumpad5
+	IniRead, key_LabelANumpad6, %FileVarImport%, Binds, key_LabelANumpad6
+	if !(key_LabelANumpad6 = "ERROR")
+IniWrite, %key_LabelANumpad6%, %FileVarImport2%, Binds, key_LabelANumpad6
+	IniRead, key_LabelANumpad7, %FileVarImport%, Binds, key_LabelANumpad7
+	if !(key_LabelANumpad7 = "ERROR")
+IniWrite, %key_LabelANumpad7%, %FileVarImport2%, Binds, key_LabelANumpad7
+	IniRead, key_LabelANumpad8, %FileVarImport%, Binds, key_LabelANumpad8
+	if !(key_LabelANumpad8 = "ERROR")
+IniWrite, %key_LabelANumpad8%, %FileVarImport2%, Binds, key_LabelANumpad8
+	IniRead, key_LabelANumpad9, %FileVarImport%, Binds, key_LabelANumpad9
+	if !(key_LabelANumpad9 = "ERROR")
+IniWrite, %key_LabelANumpad9%, %FileVarImport2%, Binds, key_LabelANumpad9
+	IniRead, ExManualMode, %FileVarImport%, Expedition, ExManualMode
+	if !(ExManualMode = "ERROR")
+IniWrite, %ExManualMode%, %FileVarImport2%, Expedition, ExManualMode
+	IniRead, ExMondK1, %FileVarImport%, Expedition, ExMondK1
+	if !(ExMondK1 = "ERROR")
+IniWrite, %ExMondK1%, %FileVarImport2%, Expedition, ExMondK1
+	IniRead, ExMondK2, %FileVarImport%, Expedition, ExMondK2
+	if !(ExMondK2 = "ERROR")
+IniWrite, %ExMondK2%, %FileVarImport2%, Expedition, ExMondK2
+	IniRead, ExMondK3, %FileVarImport%, Expedition, ExMondK3
+	if !(ExMondK3 = "ERROR")
+IniWrite, %ExMondK3%, %FileVarImport2%, Expedition, ExMondK3
+	IniRead, ExMondK4, %FileVarImport%, Expedition, ExMondK4
+	if !(ExMondK4 = "ERROR")
+IniWrite, %ExMondK4%, %FileVarImport2%, Expedition, ExMondK4
+	IniRead, ExMondK5, %FileVarImport%, Expedition, ExMondK5
+	if !(ExMondK5 = "ERROR")
+IniWrite, %ExMondK5%, %FileVarImport2%, Expedition, ExMondK5
+	IniRead, ExMondK6, %FileVarImport%, Expedition, ExMondK6
+	if !(ExMondK6 = "ERROR")
+IniWrite, %ExMondK6%, %FileVarImport2%, Expedition, ExMondK6
+	IniRead, ExLiyK1, %FileVarImport%, Expedition, ExLiyK1
+	if !(ExLiyK1 = "ERROR")
+IniWrite, %ExLiyK1%, %FileVarImport2%, Expedition, ExLiyK1
+	IniRead, ExLiyK2, %FileVarImport%, Expedition, ExLiyK2
+	if !(ExLiyK2 = "ERROR")
+IniWrite, %ExLiyK2%, %FileVarImport2%, Expedition, ExLiyK2
+	IniRead, ExLiyK3, %FileVarImport%, Expedition, ExLiyK3
+	if !(ExLiyK3 = "ERROR")
+IniWrite, %ExLiyK3%, %FileVarImport2%, Expedition, ExLiyK3
+	IniRead, ExLiyK4, %FileVarImport%, Expedition, ExLiyK4
+	if !(ExLiyK4 = "ERROR")
+IniWrite, %ExLiyK4%, %FileVarImport2%, Expedition, ExLiyK4
+	IniRead, ExLiyK5, %FileVarImport%, Expedition, ExLiyK5
+	if !(ExLiyK5 = "ERROR")
+IniWrite, %ExLiyK5%, %FileVarImport2%, Expedition, ExLiyK5
+	IniRead, ExLiyK6, %FileVarImport%, Expedition, ExLiyK6
+	if !(ExLiyK6 = "ERROR")
+IniWrite, %ExLiyK6%, %FileVarImport2%, Expedition, ExLiyK6
+	IniRead, ExInaK1, %FileVarImport%, Expedition, ExInaK1
+	if !(ExInaK1 = "ERROR")
+IniWrite, %ExInaK1%, %FileVarImport2%, Expedition, ExInaK1
+	IniRead, ExInaK2, %FileVarImport%, Expedition, ExInaK2
+	if !(ExInaK2 = "ERROR")
+IniWrite, %ExInaK2%, %FileVarImport2%, Expedition, ExInaK2
+	IniRead, ExInaK3, %FileVarImport%, Expedition, ExInaK3
+	if !(ExInaK3 = "ERROR")
+IniWrite, %ExInaK3%, %FileVarImport2%, Expedition, ExInaK3
+	IniRead, ExInaK4, %FileVarImport%, Expedition, ExInaK4
+	if !(ExInaK4 = "ERROR")
+IniWrite, %ExInaK4%, %FileVarImport2%, Expedition, ExInaK4
+	IniRead, ExInaK5, %FileVarImport%, Expedition, ExInaK5
+	if !(ExInaK5 = "ERROR")
+IniWrite, %ExInaK5%, %FileVarImport2%, Expedition, ExInaK5
+	IniRead, ExInaK6, %FileVarImport%, Expedition, ExInaK6
+	if !(ExInaK6 = "ERROR")
+IniWrite, %ExInaK6%, %FileVarImport2%, Expedition, ExInaK6
+	IniRead, TTimerahk1, %FileVarImport%, Setings, TTimerahk1
+	if !(TTimerahk1 = "ERROR")
+IniWrite, %TTimerahk1%, %FileVarImport2%, Setings, TTimerahk1
+Return
 
 
 ;=====================================Установщик драйвера
@@ -1848,7 +1839,7 @@ FileRemoveDir, %EditDir%\Genshin Impact Game\reshade-shaders, 1
 SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
 return
 
-1FreestyleInstal:
+FF1FreestyleInstal:
 MsgBox 0x1, ,Nvidia Freestyle Ansel instal?
 IfMsgBox OK, {
 } Else IfMsgBox Cancel, {
@@ -1859,6 +1850,94 @@ FileCreateDir, C:\Program Files\NVIDIA Corporation\Ansel
 FileCopy, data\ShadersAndTextures\*.*, C:\Program Files\NVIDIA Corporation\Ansel, 1
 SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
 Return
+
+FF1FreestyleBack:
+MsgBox 0x1, ,BackUp Freestyle presets?
+IfMsgBox OK, {
+} Else IfMsgBox Cancel, {
+Return
+}
+IfNotExist, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache
+	{
+	MsgBox,,, Папка с сохранениями не найдена`nC:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache, 3
+	Return
+	}
+zaglushkaloop1 = 
+zaglushkaloop2 = 
+Loop C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\Local Storage\leveldb\*.ldb
+zaglushkaloop1:=A_LoopFileName
+Loop C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\IndexedDB\file__0.indexeddb.leveldb\*.ldb
+zaglushkaloop2:=A_LoopFileName
+if (zaglushkaloop1 != "") or (zaglushkaloop2 != "")
+{
+FileRemoveDir, data\NvCacheBack, 1
+FileCreateDir, data\NvCacheBack
+FileCreateDir, data\NvCacheBack\IndexedDB
+FileCreateDir, data\NvCacheBack\Local Storage
+FileCopyDir, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\IndexedDB, data\NvCacheBack\IndexedDB, 1
+FileCopyDir, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\Local Storage, data\NvCacheBack\Local Storage, 1
+SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+Return
+}
+Else
+{
+	MsgBox 0x1, ,Сохранения не найдены`nИгнорировать и бкапить?
+	IfMsgBox OK, {
+	} Else IfMsgBox Cancel, {
+	Return
+	}
+	FileRemoveDir, data\NvCacheBack, 1
+	FileCreateDir, data\NvCacheBack
+	FileCreateDir, data\NvCacheBack\IndexedDB
+	FileCreateDir, data\NvCacheBack\Local Storage
+	FileCopyDir, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\IndexedDB, data\NvCacheBack\IndexedDB, 1
+	FileCopyDir, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\Local Storage, data\NvCacheBack\Local Storage, 1
+	SoundPlay, %A_ScriptDir%\data\zinecraft_pick_u.wav
+}
+Return
+
+FF1FreestyleRes:
+MsgBox 0x1, ,Restore Freestyle presets?
+IfMsgBox OK, {
+} Else IfMsgBox Cancel, {
+Return
+}
+	IfWinExist, AHK_exe nvcontainer.exe
+	{
+	MsgBox,,,  Нельзя менять файлы пока открыт Nvcontainer.exe`nНеобходимо убить процесс Nvcontainer.exe, 3
+	Return
+	}
+	IfNotExist, data\NvCacheBack\IndexedDB
+	{
+	MsgBox,,, Папка с сохранениями пустая`nНеобходимо сделать бкап, 3
+	Return
+	}
+	FileRemoveDir, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\IndexedDB, 1
+	FileRemoveDir, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\Local Storage, 1
+	
+FileCopyDir, data\NvCacheBack\IndexedDB, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\IndexedDB, 1
+FileCopyDir, data\NvCacheBack\Local Storage, C:\Users\%A_UserName%\AppData\Local\NVIDIA Corporation\NVIDIA Share\CefCache\Local Storage, 1
+	
+Return
+
+FF1FreestyleKill:
+MsgBox 0x1, ,Kill nvcontainer.exe?
+IfMsgBox OK, {
+} Else IfMsgBox Cancel, {
+Return
+}
+RunWait, taskkill /T /F /IM nvcontainer.exe*
+Return
+
+
+
+
+
+
+
+
+
+
 
 1pickreg1:
 IfWinExist, %gameexe1337%
@@ -6832,6 +6911,10 @@ RunButton:
 Run, cmd /k @echo Off & "%A_ScriptDir%\data\midi.py"
 Return
 
+ExploreMidiButton:
+Run, %A_ScriptDir%\data\soundall
+Return
+
 pickregedit:
 Run, cmd /k @echo Off & reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit /v LastKey /t REG_SZ /d "HKEY_CURRENT_USER\Software\miHoYo\Genshin Impact" /f & start "title" /b regedit.exe & exit
 Return
@@ -6924,7 +7007,7 @@ UpdateButton:
 			IfNotExist, %A_ScriptDir%\update\GenshinImpact-AHK-flex-main\Genshin AHK
 				{
 				FileRemoveDir, update, 1
-				MsgBox,,, Error`nФайл не скачался`nПереподай еще, 2
+				MsgBox,,, Error`nПредыдущая обнова была прервана`nФайлы поломались`nПовтори попытку еще раз, 2
 				Return
 				}
 
@@ -6932,335 +7015,10 @@ FileCopy, %A_ScriptDir%\data\reg\*.reg, %A_ScriptDir%\update\GenshinImpact-AHK-f
 FileCopy, %A_ScriptDir%\data\soundall\*.mid, %A_ScriptDir%\update\GenshinImpact-AHK-flex-main\Genshin AHK\data\soundall\, 1 	;копируем миди файлы из папки со скриптом в новую
 FileCopy, %A_ScriptDir%\data\midi_config.json, %A_ScriptDir%\update\GenshinImpact-AHK-flex-main\Genshin AHK\data\midi_config.json, 1 	;копируем миди конфиг из папки со скриптом в новую
 
+;======================================================импорт кастроек
 FileVarImport=data\genConfig.ini
-
-	IniRead, KeyboardVID, %FileVarImport%, Extra, KeyboardVID
-	if !(KeyboardVID = "ERROR")
-IniWrite, %KeyboardVID%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, KeyboardVID
-	IniRead, KeyboardPID, %FileVarImport%, Extra, KeyboardPID
-	if !(KeyboardPID = "ERROR")
-IniWrite, %KeyboardPID%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, KeyboardPID
-	IniRead, MouseVID, %FileVarImport%, Extra, MouseVID
-	if !(MouseVID = "ERROR")
-IniWrite, %MouseVID%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, MouseVID
-	IniRead, MousePID, %FileVarImport%, Extra, MousePID
-	if !(MousePID = "ERROR")
-IniWrite, %MousePID%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, MousePID
-	IniRead, InterceptionFishMouseMoveX, %FileVarImport%, Extra, InterceptionFishMouseMoveX
-	if !(InterceptionFishMouseMoveX = "ERROR")
-IniWrite, %InterceptionFishMouseMoveX%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, InterceptionFishMouseMoveX
-	IniRead, InterceptionFishMouseMoveY, %FileVarImport%, Extra, InterceptionFishMouseMoveY
-	if !(InterceptionFishMouseMoveY = "ERROR")
-IniWrite, %InterceptionFishMouseMoveY%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, InterceptionFishMouseMoveY
-	IniRead, InterceptionVentiMouseMoveX, %FileVarImport%, Extra, InterceptionVentiMouseMoveX
-	if !(InterceptionVentiMouseMoveX = "ERROR")
-IniWrite, %InterceptionVentiMouseMoveX%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, InterceptionVentiMouseMoveX
-	IniRead, InterceptionVentiMouseMoveY, %FileVarImport%, Extra, InterceptionVentiMouseMoveY
-	if !(InterceptionVentiMouseMoveY = "ERROR")
-IniWrite, %InterceptionVentiMouseMoveY%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, InterceptionVentiMouseMoveY
-	IniRead, Prozra4nostiFis, %FileVarImport%, Fish, Prozra4nostiFis
-	if !(Prozra4nostiFis = "ERROR")
-IniWrite, %Prozra4nostiFis%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Fish, Prozra4nostiFis
-	IniRead, OttenokFis, %FileVarImport%, Fish, OttenokFis
-	if !(OttenokFis = "ERROR")
-IniWrite, %OttenokFis%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Fish, OttenokFis
-	IniRead, OptimizationFis, %FileVarImport%, Fish, OptimizationFis
-	if !(OptimizationFis = "ERROR")
-IniWrite, %OptimizationFis%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Fish, OptimizationFis
-	IniRead, Highperformancemode, %FileVarImport%, Setings, Highperformancemode
-	if !(Highperformancemode = "ERROR")
-IniWrite, %Highperformancemode%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Highperformancemode
-	IniRead, ScWinrenamer, %FileVarImport%, Setings, ScWinrenamer ; проверка Winrenamer
-	if !(ScWinrenamer = "ERROR")
-IniWrite, %ScWinrenamer%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, ScWinrenamer ; проверка Winrenamer
-	IniRead, ScRenamer, %FileVarImport%, Setings, ScRenamer ; проверка Renamera
-	if !(ScRenamer = "ERROR")
-IniWrite, %ScRenamer%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, ScRenamer ; проверка Renamera
-	IniRead, ScHachCh, %FileVarImport%, Setings, ScHachCh ; проверка ScHachCh
-	if !(ScHachCh = "ERROR")
-IniWrite, %ScHachCh%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, ScHachCh ; проверка ScHachCh
-	IniRead, ScRandomT, %FileVarImport%, Setings, ScRandomT ; проверка рандом таймер
-	if !(ScRandomT = "ERROR")
-IniWrite, %ScRandomT%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, ScRandomT ; проверка рандом таймер
-	IniRead, ScOverlay, %FileVarImport%, Setings, ScOverlay ; проверка uid overlay
-	if !(ScOverlay = "ERROR")
-IniWrite, %ScOverlay%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, ScOverlay ; проверка uid overlay
-	IniRead, DefaultJopaTrue, %FileVarImport%, Extra, DefaultJopaTrue
-	if !(DefaultJopaTrue = "ERROR")
-IniWrite, %DefaultJopaTrue%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, DefaultJopaTrue
-	IniRead, key_animcancel, %FileVarImport%, Binds, key_animcancel
-	if !(key_animcancel = "ERROR")
-IniWrite, %key_animcancel%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_animcancel
-	IniRead, key_map, %FileVarImport%, Binds, key_map
-	if !(key_map = "ERROR")
-IniWrite, %key_map%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_map
-	IniRead, key_autowalk, %FileVarImport%, Binds, key_autowalk
-	if !(key_autowalk = "ERROR")
-IniWrite, %key_autowalk%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_autowalk
-	IniRead, key_overlay, %FileVarImport%, Binds, key_overlay
-	if !(key_overlay = "ERROR")
-IniWrite, %key_overlay%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_overlay
-	IniRead, key_fastlyt, %FileVarImport%, Binds, key_fastlyt
-	if !(key_fastlyt = "ERROR")
-IniWrite, %key_fastlyt%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_fastlyt
-	IniRead, key_skipNPS, %FileVarImport%, Binds, key_skipNPS
-	if !(key_skipNPS = "ERROR")
-IniWrite, %key_skipNPS%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_skipNPS
-	IniRead, key_bhop, %FileVarImport%, Binds, key_bhop
-	if !(key_bhop = "ERROR")
-IniWrite, %key_bhop%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_bhop
-	IniRead, key_autoswim, %FileVarImport%, Binds, key_autoswim
-	if !(key_autoswim = "ERROR")
-IniWrite, %key_autoswim%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_autoswim
-	IniRead, key_vi4er_sens, %FileVarImport%, Binds, key_vi4er_sens
-	if !(key_vi4er_sens = "ERROR")
-IniWrite, %key_vi4er_sens%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Binds, key_vi4er_sens
-	IniRead, FIXchat, %FileVarImport%, Setings, FIXchat
-	if !(FIXchat = "ERROR")
-IniWrite, %FIXchat%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, FIXchat
-
-	IniRead, CheckUpdatePic, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, CheckUpdatePic
-	if !(CheckUpdatePic = "ERROR")
-IniWrite, %CheckUpdatePic%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, CheckUpdatePic
-	IniRead, AutoExitAHK, %FileVarImport%, Setings, AutoExitAHK
-	if !(AutoExitAHK = "ERROR")
-IniWrite, %AutoExitAHK%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, AutoExitAHK
-	IniRead, IsAdmin, %FileVarImport%, Setings, IsAdmin
-	if !(IsAdmin = "ERROR")
-IniWrite, %IsAdmin%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, IsAdmin
-	IniRead, MousemoveBow, %FileVarImport%, Extra, MousemoveBow 	;двигать мышку вправо когда идет стрельба с макроса на винапи
-	if !(MousemoveBow = "ERROR")
-IniWrite, %MousemoveBow%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, MousemoveBow 	;двигать мышку вправо когда идет стрельба с макроса на винапи
-	IniRead, FishMouseMoveX, %FileVarImport%, Extra, FishMouseMoveX 	;сколько двигать для фишль по X = 43 на дефолтных настройках
-	if !(FishMouseMoveX = "ERROR")
-IniWrite, %FishMouseMoveX%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, FishMouseMoveX 	;сколько двигать для фишль по X = 43 на дефолтных настройках
-	IniRead, FishMouseMoveY, %FileVarImport%, Extra, FishMouseMoveY 	;сколько двигать для фишль по Y = 0
-	if !(FishMouseMoveY = "ERROR")
-IniWrite, %FishMouseMoveY%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, FishMouseMoveY 	;сколько двигать для фишль по Y = 0
-	IniRead, VentiMouseMoveX, %FileVarImport%, Extra, VentiMouseMoveX 	;двигать для венти по X = 43 на дефолтных настройках
-	if !(VentiMouseMoveX = "ERROR")
-IniWrite, %VentiMouseMoveX%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, VentiMouseMoveX 	;двигать для венти по X = 43 на дефолтных настройках
-	IniRead, VentiMouseMoveY, %FileVarImport%, Extra, VentiMouseMoveY 	;двигать для венти по X = 0
-	if !(VentiMouseMoveY = "ERROR")
-IniWrite, %VentiMouseMoveY%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Extra, VentiMouseMoveY 	;двигать для венти по X = 0
-	IniRead, BrauzerCheck, %FileVarImport%, Setings, BrauzerCheck ; проверка браузера
-	if !(BrauzerCheck = "ERROR")
-IniWrite, %BrauzerCheck%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, BrauzerCheck ; проверка браузера
-	IniRead, BrauzerPick, %FileVarImport%, Setings, BrauzerPick ; выбор браузера
-	if !(BrauzerPick = "ERROR")
-IniWrite, %BrauzerPick%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, BrauzerPick ; выбор браузера
-	IniRead, Map2toggle, %FileVarImport%, Setings, Map2toggle
-	if !(Map2toggle = "ERROR")
-IniWrite, %Map2toggle%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Map2toggle
-	IniRead, gameexe1337, %FileVarImport%, Setings, GameExe	; исполняемый файл игры
-	if !(gameexe1337 = "ERROR")
-IniWrite, %gameexe1337%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, GameExe	; исполняемый файл игры
-	IniRead, ONregreadDir, %FileVarImport%, Setings, ONregreadDir ; поиск папки в реестре для откл кастсцен
-	if !(ONregreadDir = "ERROR")
-IniWrite, %ONregreadDir%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, ONregreadDir ; поиск папки в реестре для откл кастсцен
-	IniRead, DirGame, %FileVarImport%, Setings, DirGame
-	if !(DirGame = "ERROR")
-IniWrite, %DirGame%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, DirGame
-	IniRead, metodVvoda, %FileVarImport%, Setings, metodVvoda
-	if !(metodVvoda = "ERROR")
-IniWrite, %metodVvoda%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, metodVvoda
-	IniRead, showtooltipVvoba, %FileVarImport%, Setings, showtooltipVvoba
-	if !(showtooltipVvoba = "ERROR")
-IniWrite, %showtooltipVvoba%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, showtooltipVvoba
-	IniRead, showmegui, %FileVarImport%, Setings, showmegui
-	if !(showmegui = "ERROR")
-IniWrite, %showmegui%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, showmegui
-	IniRead, Checkbox1map, %FileVarImport%, Setings, Checkbox1map
-	if !(Checkbox1map = "ERROR")
-IniWrite, %Checkbox1map%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1map
-	IniRead, Checkbox1overlay, %FileVarImport%, Setings, Checkbox1overlay
-	if !(Checkbox1overlay = "ERROR")
-IniWrite, %Checkbox1overlay%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1overlay
-	IniRead, Checkbox1autowalk, %FileVarImport%, Setings, Checkbox1autowalk
-	if !(Checkbox1autowalk = "ERROR")
-IniWrite, %Checkbox1autowalk%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1autowalk
-	IniRead, Checkbox1fastlyt, %FileVarImport%, Setings, Checkbox1fastlyt
-	if !(Checkbox1fastlyt = "ERROR")
-IniWrite, %Checkbox1fastlyt%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1fastlyt
-	IniRead, Checkbox1skipNPS, %FileVarImport%, Setings, Checkbox1skipNPS
-	if !(Checkbox1skipNPS = "ERROR")
-IniWrite, %Checkbox1skipNPS%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1skipNPS
-	IniRead, Checkbox1autoswim, %FileVarImport%, Setings, Checkbox1autoswim
-	if !(Checkbox1autoswim = "ERROR")
-IniWrite, %Checkbox1autoswim%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1autoswim
-	IniRead, Checkbox1vi4ersens, %FileVarImport%, Setings, Checkbox1vi4ersens
-	if !(Checkbox1vi4ersens = "ERROR")
-IniWrite, %Checkbox1vi4ersens%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1vi4ersens
-	IniRead, Checkbox1animcancel, %FileVarImport%, Setings, Checkbox1animcancel
-	if !(Checkbox1animcancel = "ERROR")
-IniWrite, %Checkbox1animcancel%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1animcancel
-	IniRead, Checkbox1bhop, %FileVarImport%, Setings, Checkbox1bhop
-	if !(Checkbox1bhop = "ERROR")
-IniWrite, %Checkbox1bhop%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1bhop
-	IniRead, Checkbox1bhopDelay, %FileVarImport%, Setings, Checkbox1bhopDelay
-	if !(Checkbox1bhopDelay = "ERROR")
-IniWrite, %Checkbox1bhopDelay%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1bhopDelay
-	IniRead, Checkbox1bhopDelayMs, %FileVarImport%, Setings, Checkbox1bhopDelayMs
-	if !(Checkbox1bhopDelayMs = "ERROR")
-IniWrite, %Checkbox1bhopDelayMs%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, Checkbox1bhopDelayMs
-	IniRead, RegeditExport1, %FileVarImport%, Setings, RegeditExport1
-	if !(RegeditExport1 = "ERROR")
-IniWrite, %RegeditExport1%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, RegeditExport1
-	IniRead, RegeditExport2, %FileVarImport%, Setings, RegeditExport2
-	if !(RegeditExport2 = "ERROR")
-IniWrite, %RegeditExport2%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, RegeditExport2
-	IniRead, RegeditExport3, %FileVarImport%, Setings, RegeditExport3
-	if !(RegeditExport3 = "ERROR")
-IniWrite, %RegeditExport3%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, RegeditExport3
-	IniRead, RegeditExport4, %FileVarImport%, Setings, RegeditExport4
-	if !(RegeditExport4 = "ERROR")
-IniWrite, %RegeditExport4%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, RegeditExport4
-	IniRead, RegeditExport5, %FileVarImport%, Setings, RegeditExport5
-	if !(RegeditExport5 = "ERROR")
-IniWrite, %RegeditExport5%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, RegeditExport5
-	IniRead, GlLanguage, %FileVarImport%, Setings, GlLanguage
-	if !(GlLanguage = "ERROR")
-IniWrite, %GlLanguage%, update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini, Setings, GlLanguage
-
-	IniRead, key_LabelNumpad0, %FileVarImport%, Binds, key_LabelNumpad0
-	if !(key_LabelNumpad0 = "ERROR")
-IniWrite, %key_LabelNumpad0%, data\genConfig.ini, Binds, key_LabelNumpad0
-	IniRead, key_LabelNumpad1, %FileVarImport%, Binds, key_LabelNumpad1
-	if !(key_LabelNumpad1 = "ERROR")
-IniWrite, %key_LabelNumpad1%, data\genConfig.ini, Binds, key_LabelNumpad1
-	IniRead, key_LabelNumpad2, %FileVarImport%, Binds, key_LabelNumpad2
-	if !(key_LabelNumpad2 = "ERROR")
-IniWrite, %key_LabelNumpad2%, data\genConfig.ini, Binds, key_LabelNumpad2
-	IniRead, key_LabelNumpad3, %FileVarImport%, Binds, key_LabelNumpad3
-	if !(key_LabelNumpad3 = "ERROR")
-IniWrite, %key_LabelNumpad3%, data\genConfig.ini, Binds, key_LabelNumpad3
-	IniRead, key_LabelNumpad4, %FileVarImport%, Binds, key_LabelNumpad4
-	if !(key_LabelNumpad4 = "ERROR")
-IniWrite, %key_LabelNumpad4%, data\genConfig.ini, Binds, key_LabelNumpad4
-	IniRead, key_LabelNumpad5, %FileVarImport%, Binds, key_LabelNumpad5
-	if !(key_LabelNumpad5 = "ERROR")
-IniWrite, %key_LabelNumpad5%, data\genConfig.ini, Binds, key_LabelNumpad5
-	IniRead, key_LabelNumpad6, %FileVarImport%, Binds, key_LabelNumpad6
-	if !(key_LabelNumpad6 = "ERROR")
-IniWrite, %key_LabelNumpad6%, data\genConfig.ini, Binds, key_LabelNumpad6
-	IniRead, key_LabelNumpad7, %FileVarImport%, Binds, key_LabelNumpad7
-	if !(key_LabelNumpad7 = "ERROR")
-IniWrite, %key_LabelNumpad7%, data\genConfig.ini, Binds, key_LabelNumpad7
-	IniRead, key_LabelNumpad8, %FileVarImport%, Binds, key_LabelNumpad8
-	if !(key_LabelNumpad8 = "ERROR")
-IniWrite, %key_LabelNumpad8%, data\genConfig.ini, Binds, key_LabelNumpad8
-	IniRead, key_LabelNumpad9, %FileVarImport%, Binds, key_LabelNumpad9
-	if !(key_LabelNumpad9 = "ERROR")
-IniWrite, %key_LabelNumpad9%, data\genConfig.ini, Binds, key_LabelNumpad9
-
-	IniRead, key_LabelANumpad0, %FileVarImport%, Binds, key_LabelANumpad0
-	if !(key_LabelANumpad0 = "ERROR")
-IniWrite, %key_LabelANumpad0%, data\genConfig.ini, Binds, key_LabelANumpad0
-	IniRead, key_LabelANumpad1, %FileVarImport%, Binds, key_LabelANumpad1
-	if !(key_LabelANumpad1 = "ERROR")
-IniWrite, %key_LabelANumpad1%, data\genConfig.ini, Binds, key_LabelANumpad1
-	IniRead, key_LabelANumpad2, %FileVarImport%, Binds, key_LabelANumpad2
-	if !(key_LabelANumpad2 = "ERROR")
-IniWrite, %key_LabelANumpad2%, data\genConfig.ini, Binds, key_LabelANumpad2
-	IniRead, key_LabelANumpad3, %FileVarImport%, Binds, key_LabelANumpad3
-	if !(key_LabelANumpad3 = "ERROR")
-IniWrite, %key_LabelANumpad3%, data\genConfig.ini, Binds, key_LabelANumpad3
-	IniRead, key_LabelANumpad4, %FileVarImport%, Binds, key_LabelANumpad4
-	if !(key_LabelANumpad4 = "ERROR")
-IniWrite, %key_LabelANumpad4%, data\genConfig.ini, Binds, key_LabelANumpad4
-	IniRead, key_LabelANumpad5, %FileVarImport%, Binds, key_LabelANumpad5
-	if !(key_LabelANumpad5 = "ERROR")
-IniWrite, %key_LabelANumpad5%, data\genConfig.ini, Binds, key_LabelANumpad5
-	IniRead, key_LabelANumpad6, %FileVarImport%, Binds, key_LabelANumpad6
-	if !(key_LabelANumpad6 = "ERROR")
-IniWrite, %key_LabelANumpad6%, data\genConfig.ini, Binds, key_LabelANumpad6
-	IniRead, key_LabelANumpad7, %FileVarImport%, Binds, key_LabelANumpad7
-	if !(key_LabelANumpad7 = "ERROR")
-IniWrite, %key_LabelANumpad7%, data\genConfig.ini, Binds, key_LabelANumpad7
-	IniRead, key_LabelANumpad8, %FileVarImport%, Binds, key_LabelANumpad8
-	if !(key_LabelANumpad8 = "ERROR")
-IniWrite, %key_LabelANumpad8%, data\genConfig.ini, Binds, key_LabelANumpad8
-	IniRead, key_LabelANumpad9, %FileVarImport%, Binds, key_LabelANumpad9
-	if !(key_LabelANumpad9 = "ERROR")
-IniWrite, %key_LabelANumpad9%, data\genConfig.ini, Binds, key_LabelANumpad9
-	IniRead, key_LabelNumpadAdd, %FileVarImport%, Binds, key_LabelNumpadAdd
-	if !(key_LabelNumpadAdd = "ERROR")
-IniWrite, %key_LabelNumpadAdd%, data\genConfig.ini, Binds, key_LabelNumpadAdd
-	IniRead, key_LabelANumpadAdd, %FileVarImport%, Binds, key_LabelANumpadAdd
-	if !(key_LabelANumpadAdd = "ERROR")
-IniWrite, %key_LabelANumpadAdd%, data\genConfig.ini, Binds, key_LabelANumpadAdd
-
-	IniRead, key_LabelNumpadSub, %FileVarImport%, Binds, key_LabelNumpadSub
-	if !(key_LabelNumpadSub = "ERROR")
-IniWrite, %key_LabelNumpadSub%, data\genConfig.ini, Binds, key_LabelNumpadSub
-
-	IniRead, key_LabelANumpadSub, %FileVarImport%, Binds, key_LabelANumpadSub
-	if !(key_LabelANumpadSub = "ERROR")
-IniWrite, %key_LabelANumpadSub%, data\genConfig.ini, Binds, key_LabelANumpadSub
-
-	IniRead, ExManualMode, %FileVarImport%, Expedition, ExManualMode
-	if !(ExManualMode = "ERROR")
-IniWrite, %ExManualMode%, data\genConfig.ini, Expedition, ExManualMode
-	IniRead, ExMondK1, %FileVarImport%, Expedition, ExMondK1
-	if !(ExMondK1 = "ERROR")
-IniWrite, %ExMondK1%, data\genConfig.ini, Expedition, ExMondK1
-	IniRead, ExMondK2, %FileVarImport%, Expedition, ExMondK2
-	if !(ExMondK2 = "ERROR")
-IniWrite, %ExMondK2%, data\genConfig.ini, Expedition, ExMondK2
-	IniRead, ExMondK3, %FileVarImport%, Expedition, ExMondK3
-	if !(ExMondK3 = "ERROR")
-IniWrite, %ExMondK3%, data\genConfig.ini, Expedition, ExMondK3
-	IniRead, ExMondK4, %FileVarImport%, Expedition, ExMondK4
-	if !(ExMondK4 = "ERROR")
-IniWrite, %ExMondK4%, data\genConfig.ini, Expedition, ExMondK4
-	IniRead, ExMondK5, %FileVarImport%, Expedition, ExMondK5
-	if !(ExMondK5 = "ERROR")
-IniWrite, %ExMondK5%, data\genConfig.ini, Expedition, ExMondK5
-	IniRead, ExMondK6, %FileVarImport%, Expedition, ExMondK6
-	if !(ExMondK6 = "ERROR")
-IniWrite, %ExMondK6%, data\genConfig.ini, Expedition, ExMondK6
-	IniRead, ExLiyK1, %FileVarImport%, Expedition, ExLiyK1
-	if !(ExLiyK1 = "ERROR")
-IniWrite, %ExLiyK1%, data\genConfig.ini, Expedition, ExLiyK1
-	IniRead, ExLiyK2, %FileVarImport%, Expedition, ExLiyK2
-	if !(ExLiyK2 = "ERROR")
-IniWrite, %ExLiyK2%, data\genConfig.ini, Expedition, ExLiyK2
-	IniRead, ExLiyK3, %FileVarImport%, Expedition, ExLiyK3
-	if !(ExLiyK3 = "ERROR")
-IniWrite, %ExLiyK3%, data\genConfig.ini, Expedition, ExLiyK3
-	IniRead, ExLiyK4, %FileVarImport%, Expedition, ExLiyK4
-	if !(ExLiyK4 = "ERROR")
-IniWrite, %ExLiyK4%, data\genConfig.ini, Expedition, ExLiyK4
-	IniRead, ExLiyK5, %FileVarImport%, Expedition, ExLiyK5
-	if !(ExLiyK5 = "ERROR")
-IniWrite, %ExLiyK5%, data\genConfig.ini, Expedition, ExLiyK5
-	IniRead, ExLiyK6, %FileVarImport%, Expedition, ExLiyK6
-	if !(ExLiyK6 = "ERROR")
-IniWrite, %ExLiyK6%, data\genConfig.ini, Expedition, ExLiyK6
-	IniRead, ExInaK1, %FileVarImport%, Expedition, ExInaK1
-	if !(ExInaK1 = "ERROR")
-IniWrite, %ExInaK1%, data\genConfig.ini, Expedition, ExInaK1
-	IniRead, ExInaK2, %FileVarImport%, Expedition, ExInaK2
-	if !(ExInaK2 = "ERROR")
-IniWrite, %ExInaK2%, data\genConfig.ini, Expedition, ExInaK2
-	IniRead, ExInaK3, %FileVarImport%, Expedition, ExInaK3
-	if !(ExInaK3 = "ERROR")
-IniWrite, %ExInaK3%, data\genConfig.ini, Expedition, ExInaK3
-	IniRead, ExInaK4, %FileVarImport%, Expedition, ExInaK4
-	if !(ExInaK4 = "ERROR")
-IniWrite, %ExInaK4%, data\genConfig.ini, Expedition, ExInaK4
-	IniRead, ExInaK5, %FileVarImport%, Expedition, ExInaK5
-	if !(ExInaK5 = "ERROR")
-IniWrite, %ExInaK5%, data\genConfig.ini, Expedition, ExInaK5
-	IniRead, ExInaK6, %FileVarImport%, Expedition, ExInaK6
-	if !(ExInaK6 = "ERROR")
-IniWrite, %ExInaK6%, data\genConfig.ini, Expedition, ExInaK6
-
-	IniRead, TTimerahk1, %FileVarImport%, Setings, TTimerahk1
-	if !(TTimerahk1 = "ERROR")
-IniWrite, %TTimerahk1%, data\genConfig.ini, Setings, TTimerahk1
-
-
+FileVarImport2=update\GenshinImpact-AHK-flex-main\Genshin AHK\data\genConfig.ini
+Gosub ImportSettLabel1
 
 FileMoveDir, %A_ScriptDir%\update\GenshinImpact-AHK-flex-main\Genshin AHK\data, %A_ScriptDir%, 1
 ; FileMove, %A_ScriptDir%\update\GenshinImpact-AHK-flex-main\Genshin AHK\*.*, %A_ScriptDir%, 1
