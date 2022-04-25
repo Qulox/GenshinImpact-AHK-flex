@@ -18,7 +18,7 @@ GameFilter=0
 ;================Класс окна, пид, имя, exe или прочее
 Gameexe1337=ahk_class UnityWndClass
 ;================Показывать время выполнения потока: 1-да, 0-нет
-TickCount=1
+TickCount=0
 
 
 
@@ -54,9 +54,6 @@ Return
 		If SpaceState = U
 			break
 ;================Начало
-
-
-
 
 
 

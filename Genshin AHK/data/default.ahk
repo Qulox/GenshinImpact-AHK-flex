@@ -110,6 +110,7 @@ Checkbox1overlay=1
 Checkbox1autowalk=1
 Checkbox1fastlyt=1
 Checkbox1skipNPS=1
+Checkbox1locknpc=0
 Checkbox1autoswim=1
 Checkbox1vi4ersens=1
 Checkbox1animcancel=1

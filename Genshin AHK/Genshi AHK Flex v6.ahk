@@ -7,7 +7,7 @@ F3 - *Автоходьба
 F - Фастлут
 Z - Скип диалогов
 X - Авторыбалка (дабл клик вкл, сингл клик выкл)
-N - Таймер (дабл клик вкл, сингл клик выкл) (-popupwindow)
+N - Таймер (дабл клик вкл, сингл клик выкл)
 Space - Банихоп
 Left - Пролистать оверлей
 Right - Пролистать оверлей
@@ -18,8 +18,8 @@ Numpad 0 - Включить/отключить банихоп
 Numpad 1 - AutoAttack
 Numpad 2 - Ningguang
 Numpad 3 - Yoimiya N1RR стоять на месте(38 стрел)
-Numpad 4 - Ganyu Venti Yoimiya Amber Fischl Aloy Tartaglia *Diona *Sara
-Numpad 5 - MachineGun: Ganyu Venti Yoimiya
+Numpad 4 - Ganyu Venti Yoimiya Gorou Amber Fischl Aloy Tartaglia *Diona *Sara
+Numpad 5 - MachineGun: Ganyu Venti Yoimiya Gorou
 Numpad 6 - Legit лучники если кикает с сервера
 Numpad 7 - Diluc DragonStrike(Ручной)
 Numpad 8 - Hu Tao N2CJ (slow)
@@ -36,7 +36,7 @@ Alt + Numpad 6 - Xiao N1SpamPlunge
 Alt + Numpad 7 - Ganyu Hold (Test 1)
 Alt + Numpad 8 - Ganyu Hold (Test 2)
 Alt + Numpad 9 - Swimming (дабл клик вкл, сингл клик выкл)
-Alt + NumpadAdd - Mona infinite swimming (дабл клик вкл, сингл клик выкл)
+Alt + NumpadAdd - Mona-Ayaka infinite swimming (дабл клик вкл, сингл клик выкл)
 Alt + NumpadSub - Auto coсking (дабл клик вкл, сингл клик выкл)
 
 Python
@@ -112,15 +112,45 @@ https://www.youtube.com/channel/UCcugQ37kzYL881PFmpIizGg/videos
 
 https://www.youtube.com/channel/UC6knkn0zDrC4pcooEG6NmnQ/videos
 
+https://www.hoyolab.com/article/3973326
+
+
+
+
+| Прочие ресурсы |
+| Ссылка | Название | Описание |
+| --- | --- | --- |
+| UC | Genshin XYZ | Бесплатный чит, фулл фарш |
+| Github | GenshinCheat | Internal чит|
+| Github | FPS Unlocker | External чит, +решейд |
+| Github | Genshin-Impact-Macro | Macros for Genshin Impact AHK |
+
+
+
+
+
+
+
+https://www.unknowncheats.me/forum/other-mmorpg-and-strategy/481738-genshin-xyz.html
+https://github.com/CallowBlack/genshin-cheat
+https://github.com/34736384/genshin-fps-unlock
+https://github.com/NineTailTeam/Genshin-Impact-Macro
 
 
 
 
 Запланировано:
+дополнить описание
 
 
 
 
+
+
+Изменения: 24.04.2022
+ - Автоготовка терь рили фулл авто!
+ - Кнопка "Clear" отключена
+ - Скип NPC Lock
 
 Изменения: 12.04.2022
  - Alt + Numpad 9 - Swimming (дабл клик вкл, сингл клик выкл)
@@ -563,6 +593,14 @@ jopa17:=false
 jopa18:=false
 jopa19:=false
 jopa20:=false
+jopa21:=false
+jopa22:=false
+jopa23:=false
+jopa24:=false
+jopa25:=false
+
+
+
 
 IniRead, DefaultJopaTrue, data\genConfig.ini, Extra, DefaultJopaTrue
 if DefaultJopaTrue = 1
@@ -659,6 +697,8 @@ IniRead, Checkbox1overlay, data\genConfig.ini, Setings, Checkbox1overlay
 IniRead, Checkbox1autowalk, data\genConfig.ini, Setings, Checkbox1autowalk
 IniRead, Checkbox1fastlyt, data\genConfig.ini, Setings, Checkbox1fastlyt
 IniRead, Checkbox1skipNPS, data\genConfig.ini, Setings, Checkbox1skipNPS
+IniRead, Checkbox1locknpc, data\genConfig.ini, Setings, Checkbox1locknpc
+
 IniRead, Checkbox1autoswim, data\genConfig.ini, Setings, Checkbox1autoswim
 IniRead, Checkbox1vi4ersens, data\genConfig.ini, Setings, Checkbox1vi4ersens
 IniRead, Checkbox1animcancel, data\genConfig.ini, Setings, Checkbox1animcancel
@@ -831,68 +871,70 @@ Gui, 1: Add, GroupBox, x8 y24 w200 h239, Binds
 
 Gui, 1: Add, Edit, x40 y40 w61 h21 vkey_map, %key_map%
 if GlLanguage
-Gui, 1: Add, Text, v1Textmap x104 y40 w78 h23, *Карта
+Gui, 1: Add, Text, v1Textmap x104 y43 w78 h23, *Карта
 Else
-Gui, 1: Add, Text, v1Textmap x104 y40 w78 h23, *Map
+Gui, 1: Add, Text, v1Textmap x104 y43 w78 h23, *Map
 
 Gui, 1: Add, CheckBox, vCheckbox0map x16 y40 w13 h18 Checked%Checkbox1map%
 Gui, 1: Add, Edit, x40 y64 w61 h21 vkey_overlay, %key_overlay%
 if GlLanguage
-Gui, 1: Add, Text, v1Textoverlay x104 y64 w80 h23, *Оверлей
+Gui, 1: Add, Text, v1Textoverlay x104 y67 w80 h23, *Оверлей
 Else
-Gui, 1: Add, Text, v1Textoverlay x104 y64 w80 h23, *Overlay
+Gui, 1: Add, Text, v1Textoverlay x104 y67 w80 h23, *Overlay
 
 Gui, 1: Add, CheckBox, vCheckbox0overlay x16 y64 w13 h18 Checked%Checkbox1overlay%
 Gui, 1: Add, Edit, x40 y88 w61 h21 vkey_autowalk, %key_autowalk%
 if GlLanguage
-Gui, 1: Add, Text, v1Textautowalk x104 y88 w80 h23, *Автоходьба
+Gui, 1: Add, Text, v1Textautowalk x104 y91 w80 h23, *Автоходьба
 Else
-Gui, 1: Add, Text, v1Textautowalk x104 y88 w80 h23, *Auto walking
+Gui, 1: Add, Text, v1Textautowalk x104 y91 w80 h23, *Auto walking
 
 Gui, 1: Add, CheckBox, vCheckbox0autowalk x16 y88 w13 h18 Checked%Checkbox1autowalk%
 Gui, 1: Add, Edit, x40 y136 w61 h21 vkey_skipNPS, %key_skipNPS%
 if GlLanguage
-Gui, 1: Add, Text, v1TextskipNPS x104 y136 w90 h23, Скип диалогов
+Gui, 1: Add, Text, v1TextskipNPS x104 y139 w56 h23, Скип NPC
 Else
-Gui, 1: Add, Text, v1TextskipNPS x104 y136 w90 h23, Dialogue skip
+Gui, 1: Add, Text, v1TextskipNPS x104 y139 w56 h23, Skip NPC
+
+Gui, 1: Add, CheckBox, vCheckbox0locknpc x162 y137 w41 h18 Checked%Checkbox1locknpc%, Lock
 
 Gui, 1: Add, CheckBox, vCheckbox0skipNPS x16 y136 w13 h18 Checked%Checkbox1skipNPS%
 Gui, 1: Add, Edit, x40 y112 w61 h21 vkey_fastlyt, %key_fastlyt%
 if GlLanguage
-Gui, 1: Add, Text, v1Textfastlyt x104 y112 w80 h23, Фастлут
+Gui, 1: Add, Text, v1Textfastlyt x104 y115 w80 h23, Фастлут
 Else
-Gui, 1: Add, Text, v1Textfastlyt x104 y112 w80 h23, Fastloot
+Gui, 1: Add, Text, v1Textfastlyt x104 y115 w80 h23, Fastloot
 
 Gui, 1: Add, CheckBox, vCheckbox0fastlyt x16 y112 w13 h18 Checked%Checkbox1fastlyt%
 Gui, 1: Add, Edit, x40 y160 w61 h21 vkey_autoswim, %key_autoswim%
 if GlLanguage
-Gui, 1: Add, Text, v1Textautoswim x104 y160 w66 h23, Таймер
+Gui, 1: Add, Text, v1Textautoswim x104 y163 w66 h23, Таймер
 Else
-Gui, 1: Add, Text, v1Textautoswim x104 y160 w66 h23, Timer
+Gui, 1: Add, Text, v1Textautoswim x104 y163 w66 h23, Timer
 
 Gui, 1: Add, CheckBox, vCheckbox0autoswim x16 y160 w13 h18 Checked%Checkbox1autoswim%
 Gui, 1: Add, Edit, x40 y184 w61 h21 vkey_vi4er_sens, %key_vi4er_sens%
 if GlLanguage
-Gui, 1: Add, Text, v1Textvi4er_sens x104 y184 w90 h23, Рыбалочка
+Gui, 1: Add, Text, v1Textvi4er_sens x104 y187 w90 h23, Рыбалочка
 Else
-Gui, 1: Add, Text, v1Textvi4er_sens x104 y184 w90 h23, Fishing
+Gui, 1: Add, Text, v1Textvi4er_sens x104 y187 w90 h23, Fishing
 
 Gui, 1: Add, CheckBox, vCheckbox0vi4ersens x16 y184 w13 h18 Checked%Checkbox1vi4ersens%
 Gui, 1: Add, Edit, x40 y208 w61 h21 vkey_animcancel, %key_animcancel%
-Gui, 1: Add, Text, v1Textanimcancel x104 y208 w56 h23, MacroKey
+Gui, 1: Add, Text, v1Textanimcancel x104 y211 w56 h23, MacroKey
 Gui, 1: Add, CheckBox, vCheckbox0animcancel x16 y208 w13 h18 Checked%Checkbox1animcancel%
 
 
 Gui, 1: Add, Edit, x40 y232 w61 h21 +Disabled, Space
-Gui, 1: Add, Text, x104 y232 w31 h20, Bhop
-Gui, 1: Add, CheckBox, vCheckbox0bhop x16 y232 w13 h18 Checked%Checkbox1bhop%
+Gui, 1: Add, Text, x104 y235 w31 h20, Bhop
+Gui, 1: Add, CheckBox, vCheckbox0bhop x16 y234 w13 h18 Checked%Checkbox1bhop%
 
-Gui, 1: Add, Edit, vCheckbox1bhopDelayMs x160 y232 w28 h17 Number Limit4, %Checkbox1bhopDelayMs%
+Gui, 1: Add, Edit, vCheckbox1bhopDelayMs x160 y233 w28 h17 Number Limit4, %Checkbox1bhopDelayMs%
 
 
 
-Gui, 1: Add, Text, v1TextaMs x192 y232 w14 h20, ms
-Gui, 1: Add, CheckBox, vCheckbox0bhopDelay x136 y232 w23 h18 Checked%Checkbox1bhopDelay%, >
+Gui, 1: Add, Text, v1TextaMs x192 y234 w14 h20, ms
+Gui, 1: Add, CheckBox, vCheckbox0bhopDelay x136 y233 w23 h18 Checked%Checkbox1bhopDelay%, >
 Random, RandomFishlPic1, 0,20
 if (RandomFishlPic1 > 3)
 Gui, 1: Add, Picture, x208 y16 w252 h256 +BackgroundTrans, data\1page1fish.png
@@ -962,11 +1004,11 @@ Gui, 1: Add, CheckBox, vCheckboxAutoExitAHK x160 y248 w120 h23 +Checked%AutoExit
 
 Gui, 1: Add, GroupBox, x152 y104 w186 h63, Windsong Lyre
 Gui, 1: Add, Button, gExploreMidiButton x160 y136 w34 h23, Exp
-; Gui, 1: Add, Button, gParsButton x160 y136 w43 h23, Pars
-Gui, 1: Add, Button, gParsButton x240 y136 w34 h23, Pars
-; Gui, 1: Add, Button, gClearButton x224 y136 w43 h23, Clear
-Gui, 1: Add, Button, gClearButton x200 y136 w34 h23, Clear
-; Gui, 1: Add, Button, gRunButton x288 y136 w43 h23, Run
+
+Gui, 1: Add, Button, gParsButton x200 y136 w34 h23, Pars
+
+; Gui, 1: Add, Button, gClearButton x200 y136 w34 h23, Clear
+
 Gui, 1: Add, Button, gRunButton x296 y136 w34 h23, Run
 
 
@@ -1248,8 +1290,8 @@ Gui, 99: Add, Text, % "vLabTextMyEdit0" " gLabelNumpad0" " x" round(A_ScreenWidt
 Gui, 99: Add, Text, % "vLabTextMyEdit1" " gLabelNumpad1" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (200 / 1440)) " +BackgroundTrans", Numpad 1 - AutoAttack
 Gui, 99: Add, Text, % "vLabTextMyEdit2" " gLabelNumpad2" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (250 / 1440)) " +BackgroundTrans", Numpad 2 - Ningguang
 Gui, 99: Add, Text, % "vLabTextMyEdit3" " gLabelNumpad3" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (300 / 1440)) " +BackgroundTrans", Numpad 3 - Yoimiya N1RR
-Gui, 99: Add, Text, % "vLabTextMyEdit4" " gLabelNumpad4" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (350 / 1440)) " +BackgroundTrans", Numpad 4 - Ganyu Venti Yoimiya Amber Fischl Aloy Tartaglia *Diona *Sara
-Gui, 99: Add, Text, % "vLabTextMyEdit5" " gLabelNumpad5" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (400 / 1440)) " +BackgroundTrans", Numpad 5 - MachineGun: Ganyu Venti Yoimiya
+Gui, 99: Add, Text, % "vLabTextMyEdit4" " gLabelNumpad4" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (350 / 1440)) " +BackgroundTrans", Numpad 4 - Ganyu Venti Yoimiya Gorou Amber Fischl Aloy Tartaglia *Diona *Sara
+Gui, 99: Add, Text, % "vLabTextMyEdit5" " gLabelNumpad5" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (400 / 1440)) " +BackgroundTrans", Numpad 5 - MachineGun: Ganyu Venti Yoimiya Gorou
 Gui, 99: Add, Text, % "vLabTextMyEdit6" " gLabelNumpad6" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (450 / 1440)) " +BackgroundTrans", Numpad 6 - Legit лучники если кикает с сервера
 Gui, 99: Add, Text, % "vLabTextMyEdit7" " gLabelNumpad7" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (500 / 1440)) " +BackgroundTrans", Numpad 7 - Diluc DragonStrike(Ручной)
 Gui, 99: Add, Text, % "vLabTextMyEdit8" " gLabelNumpad8" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (550 / 1440)) " +BackgroundTrans", Numpad 8 - Hu Tao N2CJ (slow)
@@ -1268,7 +1310,7 @@ Gui, 99: Add, Text, % "vLabTextMyEdit16" " gLabelANumpad6" " x" round(A_ScreenWi
 Gui, 99: Add, Text, % "vLabTextMyEdit17" " gLabelANumpad7" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (1100 / 1440)) " +BackgroundTrans", Alt + Numpad 7 - Ganyu Hold T1
 Gui, 99: Add, Text, % "vLabTextMyEdit18" " gLabelANumpad8" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (1150 / 1440)) " +BackgroundTrans", Alt + Numpad 8 - Ganyu Hold T2
 Gui, 99: Add, Text, % "vLabTextMyEdit19" " gLabelANumpad9" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (1200 / 1440)) " +BackgroundTrans", Alt + Numpad 9 - Swimming (x1 - off, x2 - on)
-Gui, 99: Add, Text, % "vLabTextMyEdit20" " gLabelANumpadAdd" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (1250 / 1440)) " +BackgroundTrans", Alt + NumpadAdd - Mona infinite swimming (x1 - off, x2 - on)
+Gui, 99: Add, Text, % "vLabTextMyEdit20" " gLabelANumpadAdd" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (1250 / 1440)) " +BackgroundTrans", Alt + NumpadAdd - Mona-Ayaka infinite swimming (x1 - off, x2 - on)
 Gui, 99: Add, Text, % "vLabTextMyEdit44" " gLabelANumpadSub" " x" round(A_ScreenWidth * (64 / 2560)) " y" round(A_ScreenHeight * (1300 / 1440)) " +BackgroundTrans", Alt + NumpadSub - Auto coсking (x1 - off, x2 - on)
 
 Gui, 99: Add, Text, % "vLabTextMyEdit41" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (50 / 1440)) " +BackgroundTrans", AHK
@@ -1278,7 +1320,7 @@ Gui, 99: Add, Text, % "vLabTextMyEdit23" " x" round(A_ScreenWidth * (1400 / 2560
 Gui, 99: Add, Text, % "vLabTextMyEdit24" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (300 / 1440)) " +BackgroundTrans", F - Фастлут
 Gui, 99: Add, Text, % "vLabTextMyEdit25" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (350 / 1440)) " +BackgroundTrans", Z - Скип диалогов
 Gui, 99: Add, Text, % "vLabTextMyEdit26" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (400 / 1440)) " +BackgroundTrans", X - Авторыбалка (дабл клик вкл, сингл клик выкл)
-Gui, 99: Add, Text, % "vLabTextMyEdit27" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (450 / 1440)) " +BackgroundTrans", N - Таймер (дабл клик вкл, сингл клик выкл) (-popupwindow)
+Gui, 99: Add, Text, % "vLabTextMyEdit27" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (450 / 1440)) " +BackgroundTrans", N - Таймер (дабл клик вкл, сингл клик выкл)
 Gui, 99: Add, Text, % "vLabTextMyEdit28" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (500 / 1440)) " +BackgroundTrans", Space - Банихоп
 Gui, 99: Add, Text, % "vLabTextMyEdit29" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (550 / 1440)) " +BackgroundTrans", Left - Пролистать оверлей
 Gui, 99: Add, Text, % "vLabTextMyEdit30" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (600 / 1440)) " +BackgroundTrans", Right - Пролистать оверлей
@@ -1305,9 +1347,6 @@ Gui, 99: Cancel
 
 
 
-if AutoExitAHK
-SetTimer, ExitOnGameClose, 3000
-
 
 ;====================================================================проверить обнову и покрасить значек
 if CheckUpdatePic
@@ -1323,6 +1362,7 @@ if  (CheckMDAY = A_MDAY)
 	if (LastStatusCheck = 0)
 	GuiControl,1:, GitUpPic, data\Github-yel.png
 	; MsgBox Не чекать обнову, обнова уже сегодня чекалась
+	Goto LabelSkip1
 	Return
 	}
 Else
@@ -1337,6 +1377,7 @@ Else
 	GuiControl,1:, GitUpPic, data\Github-yel.png
 	IniWrite, 0, data\inputversion.ini, Info, LastStatusCheck
 	; MsgBox Ошибка загрузки
+	Goto LabelSkip1
 	Return
 	}
 	IniRead, TimeupNew, update\inputversion.ini, Info, Timeup
@@ -1346,6 +1387,7 @@ Else
 		GuiControl,1:, GitUpPic, data\Github-yel.png
 		IniWrite, 0, data\inputversion.ini, Info, LastStatusCheck
 		; MsgBox Ошибка сервера
+		Goto LabelSkip1
 		Return
 		}
 	IniRead, TimeupOld, data\inputversion.ini, Info, Timeup
@@ -1355,6 +1397,7 @@ Else
 		GuiControl,1:, GitUpPic, data\Github-yel.png
 		IniWrite, 0, data\inputversion.ini, Info, LastStatusCheck
 		; MsgBox Ошибка файлов
+		Goto LabelSkip1
 		Return
 		}
 	If (TimeupNew > TimeupOld)
@@ -1373,6 +1416,9 @@ Else
 	}
 FileRemoveDir, update, 1
 }
+LabelSkip1:
+if AutoExitAHK
+SetTimer, ExitOnGameClose, 3000
 
 
 
@@ -1586,6 +1632,12 @@ IniWrite, %Checkbox1fastlyt%, %FileVarImport2%, Setings, Checkbox1fastlyt
 	IniRead, Checkbox1skipNPS, %FileVarImport%, Setings, Checkbox1skipNPS
 	if !(Checkbox1skipNPS = "ERROR")
 IniWrite, %Checkbox1skipNPS%, %FileVarImport2%, Setings, Checkbox1skipNPS
+
+	IniRead, Checkbox1locknpc, %FileVarImport%, Setings, Checkbox1locknpc
+	if !(Checkbox1locknpc = "ERROR")
+IniWrite, %Checkbox1locknpc%, %FileVarImport2%, Setings, Checkbox1locknpc
+
+
 	IniRead, Checkbox1autoswim, %FileVarImport%, Setings, Checkbox1autoswim
 	if !(Checkbox1autoswim = "ERROR")
 IniWrite, %Checkbox1autoswim%, %FileVarImport2%, Setings, Checkbox1autoswim
@@ -2468,6 +2520,9 @@ svffPereklu4atelFis1337:=0
 Pereklu4atelcocking555:=0
 ;=остановить экспедиции
 expeditionVar:=0
+;=остановить скип диалогов
+svffPereklu4atelFisting228:=0
+
 if (overlay1toggle)
 {
 WinMaximize %gameexe1337%
@@ -2535,7 +2590,7 @@ IfWinActive, %gameexe1337%
 
 }
 return
-;===============================Скип диалогов
+;===============================Скип диалогов NPC Lock
 Metkakey_skipNPS:
 IfWinActive, %gameexe1337%
 {
@@ -2551,6 +2606,7 @@ IfWinActive, %gameexe1337%
 			Return
 	}
 Sleep 270
+if !(Checkbox1locknpc)
 Loop
 	{
 		GetKeyState, SpaceVar2, %key_skipNPS%, P
@@ -2564,8 +2620,69 @@ Loop
 		}
 	Click %xSkip% %ySkip%
 	}
+if Checkbox1locknpc
+{
+
+	1toggle1skipnpc := !1toggle1skipnpc
+	if (1toggle1skipnpc)
+	{
+	; sleep 100
+	  SetTimer, svffmetkammstart228, on
+	  Tooltip Skip NPC: Loop,round(A_ScreenWidth * .5 - 50),0,2
+	}
+	Else
+	{
+	; sleep 100
+	; SoundBeep
+	  SetTimer, svffmetkammstart228, off
+	  svffPereklu4atelFisting228 = 0
+	  sleep 100
+	  Tooltip,,0,0,2
+	}
+}
+
+
+
 }
 return
+
+
+
+;================================================Скип диалогов
+svffmetkammstart228:
+svffPereklu4atelFisting228 = 1
+if ScRandomT
+Random, SuperGlobalVarRan,1,15
+sleep 60 + %SuperGlobalVarRan%
+
+Click %xSkip% %ySkip%
+
+	if FIXchat
+	{
+		StructSize1337 := A_PtrSize + 16
+		VarSetCapacity(InfoStruct1337, StructSize1337)
+		NumPut(StructSize1337, InfoStruct1337)
+		DllCall("GetCursorInfo", UInt, &InfoStruct1337)
+		Result1337 := NumGet(InfoStruct1337, 8)
+		; MsgBox %Result1337%
+		if (Result1337 = 0) 			;если размер курсора 0 то скрипт не нажимает кнопки
+			svffPereklu4atelFisting228 = 0
+	}
+
+
+		IfWinNotActive, %gameexe1337%
+		{
+		svffPereklu4atelFisting228 = 0
+		}
+		if !(svffPereklu4atelFisting228)
+		{
+		  SetTimer, svffmetkammstart228, off
+		  svffPereklu4atelFisting228 = 0
+		  1toggle1skipnpc = 0
+		  sleep 100
+		  Tooltip,,0,0,2
+		}
+Return
 
 
 
@@ -5715,7 +5832,8 @@ if ErrorLevel = 0
 		;=============получить максимальную правую точку SearchVarX1 и SearchVarY1
 		Loop
 		{
-		zFoundXFis+=10
+		;=============ширина пикселей картинки
+		zFoundXFis+=6
 		ImageSearch, zmaxRightFoundXFis, zmaxRightFoundYFis, zFoundXFis, zY1Fis, zX2Fis, zY2Fis, *%OttenokFis%, *%Prozra4nostiFis% data\find3.png
 			if (zmaxRightFoundXFis != "") and (zmaxRightFoundYFis != "")
 			SearchVarX1:=zmaxRightFoundXFis, SearchVarY1:=zmaxRightFoundYFis
@@ -5740,33 +5858,52 @@ if ErrorLevel = 0
 	PixelGetColor, VColor228, fullfound1X, fullfound1Y
 		Loop
 		{
+		gotovimdalshe = 0
 		Tooltip Auto coсking: Ждем стрелку,round(A_ScreenWidth * .5 - 50),0,2
 		PixelGetColor, VColor1337, fullfound1X, fullfound1Y
 			if (VColor1337 != VColor228)
 			{
-			TTClickVarX:=round(A_ScreenWidth * (1290 / 2560)), TTClickVarY:=round(A_ScreenHeight * (1300 / 1440))
-			Click, %TTClickVarX%, %TTClickVarY%
-			sleep 1600
-			ZXTTClickVarX:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarY:=round(A_ScreenHeight * (1200 / 1440))
-			Click, %ZXTTClickVarX%, %ZXTTClickVarY%
-			Tooltip,Auto coсking: Поиск кастрюли,round(A_ScreenWidth * .5 - 50),0,2
-			Break
+				TTClickVarX:=round(A_ScreenWidth * (1290 / 2560)), TTClickVarY:=round(A_ScreenHeight * (1300 / 1440))
+				Click, %TTClickVarX%, %TTClickVarY%
+				sleep 1600
+				ZXTTClickVarX:=round(A_ScreenWidth * (1280 / 2560)), ZXTTClickVarY:=round(A_ScreenHeight * (1200 / 1440))
+				Click, %ZXTTClickVarX%, %ZXTTClickVarY%
+				sleep 1000
+				gotovimdalshe = 1
+				Tooltip,Auto coсking: Поиск кастрюли,round(A_ScreenWidth * .5 - 50),0,2
+				Break
 			}
 		sleep 1
+			;===============прервать петлю если произошла отмена
 			if !(Pereklu4atelcocking555)
 			{
-			Tooltip,Auto coсking: Поиск кастрюли,round(A_ScreenWidth * .5 - 50),0,2
-			Break
+				gotovimdalshe = 0
+				Tooltip,Auto coсking: Поиск кастрюли,round(A_ScreenWidth * .5 - 50),0,2
+				Break
 			}
-		if !(Pereklu4atelcocking555)
-		Break
+			;===============прервать петлю если произошла отмена
+			if !(Pereklu4atelcocking555)
+			{
+				gotovimdalshe = 0
+				Break
+			}
+
 		}
-	
+		if gotovimdalshe
+		{
+			if Pereklu4atelcocking555
+			{
+			ZXTTClickVarXl:=round(A_ScreenWidth * (1276 / 2560)), ZXTTClickVarYl:=round(A_ScreenHeight * (1349 / 1440))
+			Click, %ZXTTClickVarXl%, %ZXTTClickVarYl%
+			}
+		}
 	}
+		;==============если окно не активно то остановить готовку
 		IfWinNotActive, %gameexe1337%
 		{
 		Pereklu4atelcocking555 = 0
 		}
+		;==============остановить готовку
 		if !(Pereklu4atelcocking555)
 		{
 		  SetTimer, metkakli555start, off
@@ -6156,6 +6293,8 @@ IniWrite, %Checkbox0overlay%, data\genConfig.ini, Setings, Checkbox1overlay
 IniWrite, %Checkbox0autowalk%, data\genConfig.ini, Setings, Checkbox1autowalk
 IniWrite, %Checkbox0fastlyt%, data\genConfig.ini, Setings, Checkbox1fastlyt
 IniWrite, %Checkbox0skipNPS%, data\genConfig.ini, Setings, Checkbox1skipNPS
+IniWrite, %Checkbox0locknpc%, data\genConfig.ini, Setings, Checkbox1locknpc
+
 IniWrite, %Checkbox0autoswim%, data\genConfig.ini, Setings, Checkbox1autoswim
 IniWrite, %Checkbox0vi4ersens%, data\genConfig.ini, Setings, Checkbox1vi4ersens
 IniWrite, %Checkbox0animcancel%, data\genConfig.ini, Setings, Checkbox1animcancel
