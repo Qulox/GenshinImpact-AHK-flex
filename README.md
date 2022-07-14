@@ -47,6 +47,26 @@ __🚀Что по функционалу:🚀__
   + Swimming
   + Kaeya (swimming)
   + Mona-Ayaka infinite swimming
+- Мусорные макросы(включать отдельно "data\genConfig.ini"):
+  + 1 - Ведьмачье чутье(Первый клик - вкл, повторный клик - выкл)
+  + 2 - Клии комбо
+  + 3 - Стрельба на Amber по легиту но нужно быть в движении на +W
+  + 4 - Стрельба на Fischl по легиту но нужно быть в движении на +W
+  + 5 - BeidouDragonStrikeNoPlunge
+  + 6 - BeidouDragonStrikePlunge
+  + 7 - ChongyunDragonStrikeNoPlunge
+  + 8 - ChongyunDragonStrikePlunge
+  + 9 - EulaDragonStrikeNoPlunge
+  + 10 - EulaDragonStrikePlunge
+  + 11 - NoelleDragonStrikeNoPlunge
+  + 12 - NoelleDragonStrikePlunge
+  + 13 - RazorDragonStrikeNoPlunge
+  + 14 - RazorDragonStrikePlunge
+  + 15 - XinyanDragonStrikeNoPlunge
+  + 16 - XinyanDragonStrikePlunge
+  + 17 - XianglingDragonStrike
+  + 18 - Raiden Q DragonStrike
+  + 19 - HuTao E DragonStrike
 
 __🛴Возможности:🛴__
 
@@ -166,7 +186,7 @@ Alt + Numpad 0 - Hu Tao N2CJ (fast)
 Alt + Numpad 1 - Klee N1CJ
 Alt + Numpad 2 - Klee N2H1
 Alt + Numpad 3 - Klee AutoAttack(Удерживать WASD + Macro Key)
-Alt + Numpad 4 - Xiao SpamPlunge(14 прыжков)
+Alt + Numpad 4 - Other macros (genConfig.ini)
 Alt + Numpad 5 - Xiao SpamPlunge(13 прыжков)
 Alt + Numpad 6 - Xiao N1SpamPlunge(11 прыжков)
 Alt + Numpad 7 - Ganyu Hold (Test 1)
