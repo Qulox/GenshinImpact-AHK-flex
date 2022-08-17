@@ -14,7 +14,7 @@
 
 </details>
 
-[Boosty](https://boosty.to/kramar1337)
+[✨Boosty✨](https://boosty.to/kramar1337)
 
 [Подробное описание](https://github.com/Kramar1337/GenshinImpact-AHK-flex/wiki)
 
