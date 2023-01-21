@@ -923,8 +923,8 @@ Loop, parse, GroupNameMap1337Var, `n, `r
 
 ;===============================Оверлей создание
 var0ov := 1 	;заглушка для работы оверлея
-GenOverlayList := 11 	;кол-во страниц
-CheckVarKey1PaimonGifList := "9" 	;где гифки "5,6"
+GenOverlayList := 12 	;кол-во страниц
+CheckVarKey1PaimonGifList := "9,10" 	;где гифки "5,6"
 ScreenWidthRe1:=A_ScreenWidth
 ScreenHeightRe1:=A_ScreenHeight
 HpBarW:=ScreenWidthRe1
