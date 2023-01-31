@@ -103,8 +103,8 @@ Return
 
 GetKID:
 {
-IniWrite, 0x%outVarKe1%, %A_ScriptDir%\genConfig.ini, Extra, KeyboardVID
-IniWrite, 0x%outVarKe2%, %A_ScriptDir%\genConfig.ini, Extra, KeyboardPID
+IniWrite, 0x%outVarKe1%, %A_ScriptDir%\genConfig.ini, Settings, KeyboardVID
+IniWrite, 0x%outVarKe2%, %A_ScriptDir%\genConfig.ini, Settings, KeyboardPID
 }
 Return
 
@@ -112,8 +112,8 @@ Return
 
 GetMID:
 {
-IniWrite, 0x%outVarMi1%, %A_ScriptDir%\genConfig.ini, Extra, MouseVID
-IniWrite, 0x%outVarMi2%, %A_ScriptDir%\genConfig.ini, Extra, MousePID
+IniWrite, 0x%outVarMi1%, %A_ScriptDir%\genConfig.ini, Settings, MouseVID
+IniWrite, 0x%outVarMi2%, %A_ScriptDir%\genConfig.ini, Settings, MousePID
 }
 Return
 
