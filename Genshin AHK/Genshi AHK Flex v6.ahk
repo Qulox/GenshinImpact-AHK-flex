@@ -3770,11 +3770,11 @@ IfWinActive, %gameexe1337%
 
 	if ScRandomT
 	Random, SuperGlobalVarRan,1,15
-	Sleep 150 + SuperGlobalVarRan
+	Sleep 125 + SuperGlobalVarRan
 		SendInput {vk1 down}
 	if ScRandomT
 	Random, SuperGlobalVarRan,1,15
-	Sleep 315 + SuperGlobalVarRan
+	Sleep 325 + SuperGlobalVarRan
 		
 	    GetKeyState, 8SpaceState, %key_animcancel%, P
 		If 8SpaceState = U
