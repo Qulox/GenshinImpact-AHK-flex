@@ -1,7 +1,7 @@
 
 # Genshi AHK Flex v6.3
 
-AHK скрипт для Genshin Impact
+AHK скрипт для Genshin Impact, частично совместим с Honkai: Star Rail
 
 ![hippo](https://media.giphy.com/media/0x62SH4cFjByofruCe/giphy.gif)
 
@@ -38,7 +38,6 @@ __🚀Что по функционалу:🚀__
   + Hu Tao H1CJ
   + Hu Tao N2CJ
   + Yoimiya N1RR(38 стрел)
-  + Diluc DragonStrike
   + Xiao SpamPlunge
   + Xiao N1SpamPlunge
   + Ganyu Hold
@@ -66,6 +65,7 @@ __🚀Что по функционалу:🚀__
   + XianglingDragonStrike
   + Raiden Q DragonStrike
   + HuTao E DragonStrike
+  + Diluc DragonStrike
 
 __🛴Возможности:🛴__
 
@@ -220,8 +220,14 @@ Insert - Включить/отключить ReShade
 <details>
 <summary>==Список изменений==</summary>
 
-Изменения: 04.04.2023
+Изменения: 07.06.2023
+  
+ - Ganyu more
 
+Изменения: 07.04.2023
+ - Таймер удален, терь там паутинка
+
+Изменения: 04.04.2023
  - up. Alt + Numpad 7 - Ganyu Hold
  - Рыбалка 4к. Увеличение зоны захвата
  - Пищалка для свапа аккаунта
