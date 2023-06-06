@@ -157,13 +157,17 @@ https://pastebin.com/1frUjpa3
 
 
 
-
-
 Запланировано:
  - Жду пачку пресетов решейда от чела в некст году
  - Бекфлип https://youtu.be/EqSJiplBgpM?t=229
 
 
+
+Изменения: 07.06.2023
+ - Ganyu more
+
+Изменения: 07.04.2023
+ - Таймер удален, терь там паутинка
 
 Изменения: 04.04.2023
  - up. Alt + Numpad 7 - Ganyu Hold
@@ -406,7 +410,7 @@ IniRead, key_overlay, data\genConfig.ini, Settings, key_overlay
 IniRead, key_fastlyt, data\genConfig.ini, Settings, key_fastlyt
 IniRead, key_skipNPS, data\genConfig.ini, Settings, key_skipNPS
 IniRead, key_bhop, data\genConfig.ini, Settings, key_bhop
-IniRead, key_autoswim, data\genConfig.ini, Settings, key_autoswim
+IniRead, key_autoT, data\genConfig.ini, Settings, key_autoT
 IniRead, key_vi4er_sens, data\genConfig.ini, Settings, key_vi4er_sens
 ;====================Подгрузка конфига: дополнительные
 ; IniRead, CheckUpdatePic, data\genConfig.ini, Settings, CheckUpdatePic
@@ -435,7 +439,7 @@ IniRead, Checkbox1autowalk, data\genConfig.ini, Settings, Checkbox1autowalk
 IniRead, Checkbox1fastlyt, data\genConfig.ini, Settings, Checkbox1fastlyt
 IniRead, Checkbox1skipNPS, data\genConfig.ini, Settings, Checkbox1skipNPS
 IniRead, Checkbox1locknpc, data\genConfig.ini, Settings, Checkbox1locknpc
-IniRead, Checkbox1autoswim, data\genConfig.ini, Settings, Checkbox1autoswim
+IniRead, Checkbox1autoT, data\genConfig.ini, Settings, Checkbox1autoT
 IniRead, Checkbox1vi4ersens, data\genConfig.ini, Settings, Checkbox1vi4ersens
 IniRead, Checkbox1animcancel, data\genConfig.ini, Settings, Checkbox1animcancel
 IniRead, Checkbox1bhop, data\genConfig.ini, Settings, Checkbox1bhop
@@ -572,8 +576,8 @@ if Checkbox1fastlyt = 1
 Hotkey, *~%key_fastlyt%, Metkakey_fastlyt, on
 if Checkbox1skipNPS = 1
 Hotkey, *~%key_skipNPS%, Metkakey_skipNPS, on
-if Checkbox1autoswim = 1
-Hotkey, *~%key_autoswim%, Metkakey_autoswim, on
+if Checkbox1autoT = 1
+Hotkey, *~%key_autoT%, Metkakey_autoT, on
 if Checkbox1vi4ersens = 1
 Hotkey, *~%key_vi4er_sens%, Metkakey_key_vi4er_sens, on
 if Checkbox1animcancel = 1
@@ -620,50 +624,50 @@ if GlLanguage
 Gui, 1: Add, Text, v1Textmap x104 y43 w78 h23, *Карта
 Else
 Gui, 1: Add, Text, v1Textmap x104 y43 w78 h23, *Map
-
 Gui, 1: Add, CheckBox, vCheckbox0map x16 y40 w13 h18 Checked%Checkbox1map%
+
 Gui, 1: Add, Edit, x40 y64 w61 h21 vkey_overlay, %key_overlay%
 if GlLanguage
 Gui, 1: Add, Text, v1Textoverlay x104 y67 w80 h23, *Оверлей
 Else
 Gui, 1: Add, Text, v1Textoverlay x104 y67 w80 h23, *Overlay
-
 Gui, 1: Add, CheckBox, vCheckbox0overlay x16 y64 w13 h18 Checked%Checkbox1overlay%
+
 Gui, 1: Add, Edit, x40 y88 w61 h21 vkey_autowalk, %key_autowalk%
 if GlLanguage
 Gui, 1: Add, Text, v1Textautowalk x104 y91 w80 h23, *Автоходьба
 Else
 Gui, 1: Add, Text, v1Textautowalk x104 y91 w80 h23, *Auto walking
-
 Gui, 1: Add, CheckBox, vCheckbox0autowalk x16 y88 w13 h18 Checked%Checkbox1autowalk%
+
 Gui, 1: Add, Edit, x40 y136 w61 h21 vkey_skipNPS, %key_skipNPS%
 if GlLanguage
 Gui, 1: Add, Text, v1TextskipNPS x104 y139 w56 h23, Скип NPC
 Else
 Gui, 1: Add, Text, v1TextskipNPS x104 y139 w56 h23, Skip NPC
-
 Gui, 1: Add, CheckBox, vCheckbox0skipNPS x16 y136 w13 h18 Checked%Checkbox1skipNPS%
+
 Gui, 1: Add, Edit, x40 y112 w61 h21 vkey_fastlyt, %key_fastlyt%
 if GlLanguage
 Gui, 1: Add, Text, v1Textfastlyt x104 y115 w80 h23, Фастлут
 Else
 Gui, 1: Add, Text, v1Textfastlyt x104 y115 w80 h23, Fastloot
-
 Gui, 1: Add, CheckBox, vCheckbox0fastlyt x16 y112 w13 h18 Checked%Checkbox1fastlyt%
-Gui, 1: Add, Edit, x40 y160 w61 h21 vkey_autoswim, %key_autoswim%
-if GlLanguage
-Gui, 1: Add, Text, v1Textautoswim x104 y163 w66 h23, Таймер
-Else
-Gui, 1: Add, Text, v1Textautoswim x104 y163 w66 h23, Timer
 
-Gui, 1: Add, CheckBox, vCheckbox0autoswim x16 y160 w13 h18 Checked%Checkbox1autoswim%
+Gui, 1: Add, Edit, x40 y160 w61 h21 vkey_autoT, %key_autoT%
+if GlLanguage
+Gui, 1: Add, Text, v1TextautoT x104 y163 w66 h23, Паутинка
+Else
+Gui, 1: Add, Text, v1TextautoT x104 y163 w66 h23, SpiderMan
+Gui, 1: Add, CheckBox, vCheckbox0autoT x16 y160 w13 h18 Checked%Checkbox1autoT%
+
 Gui, 1: Add, Edit, x40 y184 w61 h21 vkey_vi4er_sens, %key_vi4er_sens%
 if GlLanguage
 Gui, 1: Add, Text, v1Textvi4er_sens x104 y187 w90 h23, Рыбалочка
 Else
 Gui, 1: Add, Text, v1Textvi4er_sens x104 y187 w90 h23, Fishing
-
 Gui, 1: Add, CheckBox, vCheckbox0vi4ersens x16 y184 w13 h18 Checked%Checkbox1vi4ersens%
+
 Gui, 1: Add, Edit, x40 y208 w61 h21 vkey_animcancel, %key_animcancel%
 Gui, 1: Add, Text, v1Textanimcancel x104 y211 w56 h23, MacroKey
 Gui, 1: Add, CheckBox, vCheckbox0animcancel x16 y208 w13 h18 Checked%Checkbox1animcancel%
@@ -830,9 +834,9 @@ Gui, 1: Add, GroupBox, x8 y24 w147 h146, Разное
 Else
 Gui, 1: Add, GroupBox, x8 y24 w147 h146, Other
 Gui, 1: Add, Link, x16 y48 w120 h23, <a href="https://paimon.moe/timeline/">Timeline</a>
-Gui, 1: Add, Link, x16 y72 w120 h23, <a href="https://www.hoyolab.com/home">Hoyolab</a>
+Gui, 1: Add, Link, x16 y72 w120 h23, <a href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481">Hoyolab</a>
 Gui, 1: Add, Link, x16 y96 w120 h23, <a href="https://genshin.aspirine.su/">ASPirine Калькулятор</a>
-Gui, 1: Add, Link, x16 y120 w120 h23, <a href="https://genshin.honeyhunterworld.com/">Honeyhunterworld.com</a>
+Gui, 1: Add, Link, x16 y120 w120 h23, <a href="https://genshin-info.ru/bannery/">Bannery</a>
 Gui, 1: Add, Link, x16 y144 w120 h23, <a href="https://frzyc.github.io/genshin-optimizer/#/">Genshin Optimizer</a>
 if GlLanguage
 Gui, 1: Add, GroupBox, x160 y24 w147 h146, Карты
@@ -1024,7 +1028,7 @@ Gui, 99: Add, Text, % "vLabTextMyEdit23" " x" round(A_ScreenWidth * (1400 / 2560
 Gui, 99: Add, Text, % "vLabTextMyEdit24" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (300 / 1440)) " +BackgroundTrans", F - Фастлут
 Gui, 99: Add, Text, % "vLabTextMyEdit25" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (350 / 1440)) " +BackgroundTrans", Z - Скип диалогов
 Gui, 99: Add, Text, % "vLabTextMyEdit26" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (400 / 1440)) " +BackgroundTrans", X - Авторыбалка (дабл клик вкл, сингл клик выкл)
-Gui, 99: Add, Text, % "vLabTextMyEdit27" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (450 / 1440)) " +BackgroundTrans", N - Таймер (дабл клик вкл, сингл клик выкл)
+Gui, 99: Add, Text, % "vLabTextMyEdit27" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (450 / 1440)) " +BackgroundTrans", T - Паутинка
 Gui, 99: Add, Text, % "vLabTextMyEdit28" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (500 / 1440)) " +BackgroundTrans", Space - Банихоп
 Gui, 99: Add, Text, % "vLabTextMyEdit29" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (550 / 1440)) " +BackgroundTrans", Left - Пролистать оверлей
 Gui, 99: Add, Text, % "vLabTextMyEdit30" " x" round(A_ScreenWidth * (1400 / 2560)) " y" round(A_ScreenHeight * (600 / 1440)) " +BackgroundTrans", Right - Пролистать оверлей
@@ -2190,42 +2194,32 @@ Return
 
 
 
-;===============================Плавание больше нет, тут таймер на боссов
-#UseHook, On
-metka3kli1:
+;================================================Спам паутинки
+Metkakey_autoT:
+sleep 1
 IfWinActive, %gameexe1337%		;ahk_exe GenshinImpact.exe
 {
-	WinClose, %A_WorkingDir%\data\Timer.ahk ahk_class AutoHotkey,,1
-	Run, %A_WorkingDir%\data\Timer.ahk
+if FIXchat
+{
+	StructSize1337 := A_PtrSize + 16
+	VarSetCapacity(InfoStruct1337, StructSize1337)
+	NumPut(StructSize1337, InfoStruct1337)
+	DllCall("GetCursorInfo", UInt, &InfoStruct1337)
+	Result1337 := NumGet(InfoStruct1337, 8)
+	if (Result1337 <> 0) 			;если размер курсора больше 0 то мы в чате и скрипт не нажимает кнопки
+		Return
 }
-Return
-metka3kli2:
-	WinClose, %A_WorkingDir%\data\Timer.ahk ahk_class AutoHotkey,,1
-Return
-
-
-
-#UseHook, Off
-Metkakey_autoswim:
-; Metkakey_key_vi4er_sens:
-  Pause1_=300     ; настройки
-  If not Second1
-  {
-    Second1=1
-	KeyWait, %key_autoswim%
-    SetTimer, DoublePress3, -%Pause1_%
-  }
-  Else
-  {
-    Second1=0
-    SetTimer, metka3kli1, -1
-  }
-Return
-DoublePress3:
-  If not Second1
-    Return
-  Second1=0
-  SetTimer, metka3kli2, -1
+Loop
+{
+    GetKeyState, xSpaceVar1, %key_autoT%, P
+    If xSpaceVar1 = U
+        break
+	SendInput {vk54} 	;T
+	if ScRandomT
+	Random, SuperGlobalVarRan,1,15
+	Sleep 100 + SuperGlobalVarRan
+}
+}
 Return
 
 
@@ -6154,7 +6148,33 @@ if OldMacroBackVar = 20 	;====дилюк бейдоу драгонстрайк
 		SendInput {vk20 up} 	;Space vk20
 	}
 }
-
+if OldMacroBackVar = 21 	;====Ganyu more
+{
+	if FIXchat
+	{
+		StructSize1337 := A_PtrSize + 16
+		VarSetCapacity(InfoStruct1337, StructSize1337)
+		NumPut(StructSize1337, InfoStruct1337)
+		DllCall("GetCursorInfo", UInt, &InfoStruct1337)
+		Result1337 := NumGet(InfoStruct1337, 8)
+		if (Result1337 <> 0)
+			Return
+	}
+	IfWinActive, %gameexe1337%
+	{
+		startvar1 := A_Tickcount + 1775 ; set variable to be tickcount + delay
+		while(GetKeyState(key_animcancel,"P")) ; hotkey
+		{
+			if (A_Tickcount > startvar1) 
+			{
+				SendInput {vk1 up}
+				sleep 225
+				SendInput {vk1 down}
+				startvar1 := A_Tickcount + 1775 ;reset the delay
+			}
+		}
+	}
+}
 
 
 Return
@@ -6679,18 +6699,18 @@ IniWrite, F, data\genConfig.ini, Settings, key_fastlyt
 toogglertumbler:=1
 }
 ; ======================биндим плавание
-if key_autoswim in %CheckVarKey1MatchList%,%CheckVarKey2MatchList%,%CheckVarKey3MatchList%,%CheckVarKey4MatchList%
+if key_autoT in %CheckVarKey1MatchList%,%CheckVarKey2MatchList%,%CheckVarKey3MatchList%,%CheckVarKey4MatchList%
 {
 Gui,1: Font
-GuiControl,1: Font, 1Textautoswim
-IniWrite, %key_autoswim%, data\genConfig.ini, Settings, key_autoswim
+GuiControl,1: Font, 1TextautoT
+IniWrite, %key_autoT%, data\genConfig.ini, Settings, key_autoT
 }
 Else
 {
 Gui,1: Font, cff0000
-GuiControl,1: Font, 1Textautoswim
-GuiControl,1:, key_autoswim, N
-IniWrite, N, data\genConfig.ini, Settings, key_autoswim
+GuiControl,1: Font, 1TextautoT
+GuiControl,1:, key_autoT, T
+IniWrite, T, data\genConfig.ini, Settings, key_autoT
 toogglertumbler:=1
 }
 ; ======================биндим вичер сенс
@@ -6765,7 +6785,7 @@ IniWrite, %Checkbox0fastlyt%, data\genConfig.ini, Settings, Checkbox1fastlyt
 IniWrite, %Checkbox0skipNPS%, data\genConfig.ini, Settings, Checkbox1skipNPS
 IniWrite, %Checkbox0locknpc%, data\genConfig.ini, Settings, Checkbox1locknpc
 
-IniWrite, %Checkbox0autoswim%, data\genConfig.ini, Settings, Checkbox1autoswim
+IniWrite, %Checkbox0autoT%, data\genConfig.ini, Settings, Checkbox1autoT
 IniWrite, %Checkbox0vi4ersens%, data\genConfig.ini, Settings, Checkbox1vi4ersens
 IniWrite, %Checkbox0animcancel%, data\genConfig.ini, Settings, Checkbox1animcancel
 

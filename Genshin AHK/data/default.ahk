@@ -17,7 +17,7 @@ key_fastlyt=F
 key_skipNPS=Z
 key_bhop=Space
 key_vi4er_sens=X
-key_autoswim=N
+key_autoT=T
 key_LabelNumpad0=Numpad0
 key_LabelNumpad1=Numpad1
 key_LabelNumpad2=Numpad2
@@ -118,6 +118,8 @@ ExSumK6=0
 ; 17 - XianglingDragonStrike
 ; 18 - Raiden Q DragonStrike
 ; 19 - HuTao E DragonStrike
+; 20 - Diluc DragonStrike
+; 21 - Ganyu more
 OldMacroBackVar=0
 
 ; Последняя открытая вкладка GUI
@@ -165,7 +167,7 @@ Checkbox1autowalk=1
 Checkbox1fastlyt=1
 Checkbox1skipNPS=1
 Checkbox1locknpc=0
-Checkbox1autoswim=1
+Checkbox1autoT=1
 Checkbox1vi4ersens=1
 Checkbox1animcancel=1
 Checkbox1bhop=1
